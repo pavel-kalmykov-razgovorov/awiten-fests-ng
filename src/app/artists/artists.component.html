@@ -1,3 +1,10 @@
 <div class="row">
-    Artists WORK
+    <div class="col-xs-12">
+      <a href="#" class="list-group-item clearfix" *ngFor="let artist of artists">
+        <div class="pull-left">
+          <h4 class="list-group-item-heading">{{ artist.name }}</h4>
+          <p class="list-group-item-text">{{ artist.website }}</p>
+        </div>
+      </a>
+    </div>
 </div>
