@@ -10,7 +10,11 @@ import { DataStorageService } from "../shared/data-storage.service";
 export class HeaderComponent {
   constructor(private dataStorageService: DataStorageService) {}
 
-  onGetData() {
+  onGetFestivals() {
     this.dataStorageService.getFestivals();
+  }
+
+  onGetArtists() {
+    this.dataStorageService.getArtists();
   }
 }
