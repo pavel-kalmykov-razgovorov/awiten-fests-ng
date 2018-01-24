@@ -13,6 +13,7 @@ import { ArtistService } from './public/artists/artist.service';
 import { DataStorageService } from './shared/data-storage.service';
 import { PublicComponent } from './public/public.component';
 import { PrivateComponent } from './private/private.component';
+import { FooterComponent } from './public/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +23,13 @@ import { PrivateComponent } from './private/private.component';
     ArtistsComponent,
     WelcomeComponent,
     PublicComponent,
-    PrivateComponent
+    PrivateComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule
+    HttpModule,
   ],
   providers: [FestivalService, ArtistService, DataStorageService],
   bootstrap: [AppComponent]
