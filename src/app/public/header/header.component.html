@@ -1,4 +1,5 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<p>header works!</p>
+<nav class="navbar navbar-default" role="navigation">
   <div class="navigation">
     <div class="container">
       <div class="navbar-header">
@@ -10,15 +11,15 @@
           <span class="icon-bar"></span>
         </button>
         <div class="navbar-brand">
-          <a routerLink="/"><h1><span>Awiten</span>Fests</h1></a>
+          <a routerLink="welcome"><h1><span>Awiten</span>Fests</h1></a>
         </div>
       </div>
       <div class="navbar-collapse collapse">
         <div class="menu">
           <ul class="nav nav-tabs" role="tablist">
-            <li><a routerLink="/festivals" (click)="onGetFestivals()">FESTIVALS</a></li>
-            <li><a routerLink="/artists" (click)="onGetArtists()">ARTISTS</a></li>
-            <li><a >ADMINISTRADOR</a></li>
+            <li><a routerLink="festivals" (click)="onGetFestivals()">festivales</a></li>
+            <li><a routerLink="artists" (click)="onGetArtists()">artistas</a></li>
+            <li><a routerLink="/admin">admin</a></li>
           </ul>
         </div>
       </div>

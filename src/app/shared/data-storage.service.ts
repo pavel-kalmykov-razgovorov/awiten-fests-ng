@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
-import { Http, Response } from "@angular/http";
+import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
 
-import { FestivalService } from "../festivals/festival.service";
-import { Festival } from "../festivals/festival.model";
-import { ArtistService } from "../artists/artist.service";
-import { Artist } from "../artists/artist.model";
+import { FestivalService } from '../public/festivals/festival.service';
+import { Festival } from '../public/festivals/festival.model';
+import { ArtistService } from '../public/artists/artist.service';
+import { Artist } from '../public/artists/artist.model';
 
 @Injectable()
 export class DataStorageService {
