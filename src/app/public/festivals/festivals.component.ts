@@ -3,6 +3,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Festival } from "./festival.model";
 import { FestivalService } from "./festival.service";
 import { Subscription } from "rxjs/Subscription";
+import { DataStorageService } from "../../shared/data-storage.service";
 
 @Component({
   selector: 'app-festivals',
@@ -13,7 +14,9 @@ export class FestivalsComponent implements OnInit, OnDestroy {
   festivals: Festival[];
   subscription: Subscription;
 
-  constructor(private festivalService: FestivalService) { }
+  constructor(
+    private festivalService: FestivalService,
+    private dataStorageService: DataStorageService) { }
 
   ngOnInit() {
     this.subscription = this.festivalService.festivalsChanged
@@ -22,7 +25,7 @@ export class FestivalsComponent implements OnInit, OnDestroy {
           this.festivals = festivals;
         }
       );
-    this.festivals = this.festivalService.getFestivals();
+    this.dataStorageService.getFestivals();
   }
 
   ngOnDestroy() {

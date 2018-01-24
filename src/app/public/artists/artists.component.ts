@@ -3,6 +3,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Artist } from "./artist.model";
 import { ArtistService } from "./artist.service";
 import { Subscription } from "rxjs/Subscription";
+import { DataStorageService } from "../../shared/data-storage.service";
 
 @Component({
   selector: 'app-artists',
@@ -13,7 +14,9 @@ export class ArtistsComponent implements OnInit, OnDestroy {
   artists: Artist[];
   subscription: Subscription;
 
-  constructor(private artistService: ArtistService) { }
+  constructor(
+    private artistService: ArtistService,
+    private dataStorageService: DataStorageService) { }
 
   ngOnInit() {
     this.subscription = this.artistService.artistsChanged
@@ -22,7 +25,7 @@ export class ArtistsComponent implements OnInit, OnDestroy {
           this.artists = artists;
         }
       );
-    this.artists = this.artistService.getArtists();
+    this.dataStorageService.getArtists();
   }
 
   ngOnDestroy() {
