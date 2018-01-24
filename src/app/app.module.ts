@@ -14,6 +14,8 @@ import { DataStorageService } from './shared/data-storage.service';
 import { PublicComponent } from './public/public.component';
 import { PrivateComponent } from './private/private.component';
 import { FooterComponent } from './public/footer/footer.component';
+import { LeftMenuComponent } from "./private/left-menu/left-menu.component";
+import { PrivateHeaderComponent } from "./private/private-header/private-header.component";
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { FooterComponent } from './public/footer/footer.component';
     WelcomeComponent,
     PublicComponent,
     PrivateComponent,
-    FooterComponent
+    FooterComponent,
+    PrivateHeaderComponent,
+    LeftMenuComponent
   ],
   imports: [
     BrowserModule,
