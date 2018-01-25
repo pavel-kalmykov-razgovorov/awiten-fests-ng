@@ -6,6 +6,8 @@ import { FestivalsComponent } from './public/festivals/festivals.component';
 import { ArtistsComponent } from './public/artists/artists.component';
 import {PublicComponent} from './public/public.component';
 import {PrivateComponent} from './private/private.component';
+import { SigninComponent } from './private/auth/signin/signin.component';
+import { SignupComponent } from './private/auth/signup/signup.component';
 
 const appRoutes: Routes = [
   {
@@ -28,7 +30,17 @@ const appRoutes: Routes = [
   },
   {
     path: 'admin',
-    component: PrivateComponent
+    component: PrivateComponent,
+    children: [
+      {
+        path: 'signin',
+        component: SigninComponent
+      },
+      {
+        path: 'signup',
+        component: SignupComponent
+      }
+    ]
   },
   {
     path: '',
