@@ -22,6 +22,11 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from './private/auth/auth.service';
 import { GenresComponent } from './private/genres/genres.component';
 import { GenreService } from './private/genres/genre.service';
+import { GenreDetailComponent } from './private/genres/genre-detail/genre-detail.component';
+import { PhotosComponent } from './private/photos/photos.component';
+import { PostsComponent } from './private/posts/posts.component';
+import { PhotoDetailComponent } from './private/photos/photo-detail/photo-detail.component';
+import { PostDetailComponent } from './private/posts/post-detail/post-detail.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +42,12 @@ import { GenreService } from './private/genres/genre.service';
     LeftMenuComponent,
     SigninComponent,
     SignupComponent,
-    GenresComponent
+    GenresComponent,
+    GenreDetailComponent,
+    PhotosComponent,
+    PostsComponent,
+    PhotoDetailComponent,
+    PostDetailComponent
   ],
   imports: [
     BrowserModule,

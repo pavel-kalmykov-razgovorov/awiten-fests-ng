@@ -29,9 +29,9 @@ export class AuthService {
     }), { headers: headers })
       .subscribe(
         res => {
-          this.router.navigate(['/']);
+          this.router.navigate(['/admin']);
           localStorage.setItem('token', res.json().access_token);
-          localStorage.setItem('user', res.json().user)
+          localStorage.setItem('role', res.json().user.role)
         },
         err => {
           console.log(JSON.stringify(err.json()));
@@ -41,7 +41,7 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    localStorage.removeItem('role');
   }
 
   isAuthenticated() {
@@ -49,6 +49,6 @@ export class AuthService {
   }
 
   getRole() {
-    return localStorage.user.role;
+    return localStorage.role;
   }
 }
