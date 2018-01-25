@@ -1,0 +1,38 @@
+<div id="breadcrumb">
+  <div class="container">
+    <div class="breadcrumb">
+      <div class="row">
+        <div class="col-md-12 hidden-xs">
+          <h4 class="white-text">Filtrar {{elementType}}s</h4>
+          <form>
+            <div class="form-group col-sm-4 col-md-3">
+              <label for="artistName" class="control-label">Nombre del {{elementType}}</label>
+              <input class="form-control" id="artistName" name="name" placeholder="Tu {{elementType}} favorito">
+            </div>
+            <div class="form-group col-sm-3 col-md-3">
+              <label for="pagination" class="control-label">Paginado</label>
+              <select class="form-control" id="pagination" name="size">
+                <option value="3">3 por página</option>
+                <option value="6">6 por página</option>
+                <option value="9">9 por página</option>
+              </select>
+            </div>
+            <div class="form-group col-sm-3 col-md-3">
+              <label for="orderType" class="control-label">Ordenación</label>
+              <select class="form-control" id="orderType" name="order">
+                <option value="asc">Ascendente</option>
+                <option value="desc">Descendente</option>
+              </select>
+            </div>
+            <div class="form-group col-sm-2 col-md-1">
+              <label>Filtrar</label>
+              <button type="submit" class="form-control btn btn-warning">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

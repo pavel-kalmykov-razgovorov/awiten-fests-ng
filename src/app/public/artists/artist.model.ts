@@ -1,9 +1,9 @@
 export class Artist {
-  public name: string;
-  public website: string;
-
-  constructor(name: string, website: string) {
-    this.name = name;
-    this.website = website;
+  constructor(public name: string,
+              public country: string,
+              public soundcloud: string,
+              public website: string,
+              public profileUrl: string,
+              public headerUrl: string) {
   }
 }

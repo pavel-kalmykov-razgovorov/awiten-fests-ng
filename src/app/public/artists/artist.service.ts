@@ -1,7 +1,7 @@
-import { Subject } from "rxjs/Subject";
-import { Injectable } from "@angular/core";
+import { Subject } from 'rxjs/Subject';
+import { Injectable } from '@angular/core';
 
-import { Artist } from "./artist.model";
+import { Artist } from './artist.model';
 
 @Injectable()
 export class ArtistService {

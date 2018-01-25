@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { Festival } from "./festival.model";
-import { FestivalService } from "./festival.service";
-import { Subscription } from "rxjs/Subscription";
-import { DataStorageService } from "../../shared/data-storage.service";
+import { Festival } from './festival.model';
+import { FestivalService } from './festival.service';
+import { Subscription } from 'rxjs/Subscription';
+import { DataStorageService } from '../../shared/data-storage.service';
 
 @Component({
   selector: 'app-festivals',
