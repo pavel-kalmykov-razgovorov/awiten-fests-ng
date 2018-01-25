@@ -14,7 +14,7 @@ import { PostService } from "../private/posts/post.service";
 
 @Injectable()
 export class DataStorageService {
-  private size = '?size=200';
+  private size = 99999; // Forgive me!
   constructor(
     private http: Http,
     private festivalService: FestivalService,
@@ -32,11 +32,11 @@ export class DataStorageService {
   }
 
   private addAuthentication(headers: Headers) {
-    headers.append('Authorization', 'Bearer ' + localStorage.token);
+    headers.append('Authorization', `Bearer ${localStorage.token}`);
   }
 
   getFestivals() {
-    this.http.get('http://localhost:8000/api/festivals' + this.size)
+    this.http.get(`http://localhost:8000/api/festivals?size=${this.size}`)
       .subscribe(
         (response: Response) => {
           const festivals: Festival[] = response.json().data;
@@ -46,7 +46,7 @@ export class DataStorageService {
   }
 
   getArtists() {
-    this.http.get('http://localhost:8000/api/artists' + this.size)
+    this.http.get(`http://localhost:8000/api/artists?size=${this.size}`)
       .subscribe(
         (response: Response) => {
           const artists: Artist[] = response.json().data;
@@ -56,7 +56,7 @@ export class DataStorageService {
   }
 
   getGenres() {
-    this.http.get('http://localhost:8000/api/genres' + this.size)
+    this.http.get(`http://localhost:8000/api/genres?size=${this.size}`)
       .subscribe(
         (response: Response) => {
           const genres: Genre[] = response.json().data;
@@ -66,7 +66,7 @@ export class DataStorageService {
   }
 
   getPhotos() {
-    this.http.get('http://localhost:8000/api/photos' + this.size)
+    this.http.get(`http://localhost:8000/api/photos?size=${this.size}`)
       .subscribe(
         (response: Response) => {
           const photos: Photo[] = response.json().data;
@@ -76,7 +76,7 @@ export class DataStorageService {
   }
 
   getPosts() {
-    this.http.get('http://localhost:8000/api/posts' + this.size)
+    this.http.get(`http://localhost:8000/api/posts?size=${this.size}`)
       .subscribe(
         (response: Response) => {
           const posts: Post[] = response.json().data;

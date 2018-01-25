@@ -34,6 +34,7 @@ import { PhotoService } from './private/photos/photo.service';
 import { PostService } from './private/posts/post.service';
 import { FestivalsPrivateComponent } from './private/festivals/festivals.component';
 import { ArtistsPrivateComponent } from './private/artists/artists.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 import { GenreListComponent } from './private/genres/genre-list/genre-list.component';
 
 @NgModule({
@@ -67,7 +68,8 @@ import { GenreListComponent } from './private/genres/genre-list/genre-list.compo
     AppRoutingModule,
     HttpModule,
     FormsModule,
-    DataTableModule
+    DataTableModule,
+    NgxPaginationModule
   ],
   providers: [
     FestivalService,

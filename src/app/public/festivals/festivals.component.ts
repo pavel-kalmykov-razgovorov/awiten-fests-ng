@@ -4,6 +4,7 @@ import { Festival } from './festival.model';
 import { FestivalService } from './festival.service';
 import { Subscription } from 'rxjs/Subscription';
 import { DataStorageService } from '../../shared/data-storage.service';
+import {PaginationInstance} from 'ngx-pagination';
 
 @Component({
   selector: 'app-festivals',
@@ -13,6 +14,11 @@ import { DataStorageService } from '../../shared/data-storage.service';
 export class FestivalsComponent implements OnInit, OnDestroy {
   festivals: Festival[];
   subscription: Subscription;
+  config: PaginationInstance = {
+    id: 'custom',
+    itemsPerPage: 3,
+    currentPage: 1
+  };
 
   constructor(
     private festivalService: FestivalService,

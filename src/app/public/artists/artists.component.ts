@@ -1,10 +1,11 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 
 import {Artist} from './artist.model';
 import {ArtistService} from './artist.service';
 import {Subscription} from 'rxjs/Subscription';
 import {DataStorageService} from '../../shared/data-storage.service';
 import {GenreService} from '../../private/genres/genre.service';
+import {PaginationInstance} from 'ngx-pagination';
 
 @Component({
   selector: 'app-artists',
@@ -14,7 +15,11 @@ import {GenreService} from '../../private/genres/genre.service';
 export class ArtistsComponent implements OnInit, OnDestroy {
   artists: Artist[];
   artistsSubscription: Subscription;
-  networkError = null;
+  config: PaginationInstance = {
+    id: 'custom',
+    itemsPerPage: 3,
+    currentPage: 1
+  };
 
   constructor(private artistService: ArtistService,
               private genresService: GenreService,

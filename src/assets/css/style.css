@@ -1082,6 +1082,7 @@ ul.faq li > div h3 {
   color: #888;
 }
 
+ul.pagination > li > span,
 ul.pagination > li > a {
   border: 1px solid #F1F1F1;
   margin-right: 5px;
@@ -1089,6 +1090,7 @@ ul.pagination > li > a {
   font-size: 16px;
   padding: 5px 14px;
   color: #1BBD36;
+  cursor: pointer;
 }
 
 ul.pagination > li > a i {
@@ -1096,6 +1098,7 @@ ul.pagination > li > a i {
   margin-right: 5px;
 }
 
+ul.pagination > li.active > span,
 ul.pagination > li.active > a,
 ul.pagination > li:hover > a {
   background-color: #1BBD36 !important;
