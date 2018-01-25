@@ -1,26 +1,21 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
-                <li id="home" class="active"><a routerLink="/admin">Inicio</a></li>
-                <ng-template [ngIf]="authService.isAuthenticated()">
-                  <ng-template [ngIf]="authService.getRole() === 'admin'">
-                    <li><a routerLink="/admin">Usuarios</a></li>
-                    <li><a routerLink="genres">Géneros musicales</a></li>
-                  </ng-template>
-                  <ng-template [ngIf]="authService.getRole() === 'promoter'">
-                    <li><a routerLink="/admin">Perfil</a></li>
-                    <li><a routerLink="festivals">Festivales</a></li>
-                    <li><a routerLink="posts">Noticias de Festivales</a></li>
-                    <li><a routerLink="photos">Fotos de Festivales</a></li>
-                  </ng-template>
-                  <ng-template [ngIf]="authService.getRole() === 'manager'">
-                    <li><a routerLink="/admin">Perfil</a></li>
-                    <li><a routerLink="artists">Artistas</a></li>
-                  </ng-template>
-                </ng-template>
-            </ul>
-        </div>
-        <router-outlet></router-outlet>
-    </div>
+<div class="col-sm-3 col-md-2 sidebar">
+  <ul class="nav nav-sidebar">
+    <li id="home" class="active"><a routerLink="/admin">Inicio</a></li>
+    <ng-template [ngIf]="authService.isAuthenticated()">
+      <ng-template [ngIf]="authService.getRole() === 'admin'">
+        <li><a routerLink="/admin">Usuarios</a></li>
+        <li><a routerLink="genres">Géneros musicales</a></li>
+      </ng-template>
+      <ng-template [ngIf]="authService.getRole() === 'promoter'">
+        <li><a routerLink="/admin">Perfil</a></li>
+        <li><a routerLink="festivals">Festivales</a></li>
+        <li><a routerLink="posts">Noticias de Festivales</a></li>
+        <li><a routerLink="photos">Fotos de Festivales</a></li>
+      </ng-template>
+      <ng-template [ngIf]="authService.getRole() === 'manager'">
+        <li><a routerLink="/admin">Perfil</a></li>
+        <li><a routerLink="artists">Artistas</a></li>
+      </ng-template>
+    </ng-template>
+  </ul>
 </div>

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { DataTableModule } from 'angular2-datatable';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './public/header/header.component';
@@ -55,7 +56,8 @@ import { PostService } from "./private/posts/post.service";
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    DataTableModule
   ],
   providers: [
     FestivalService,
