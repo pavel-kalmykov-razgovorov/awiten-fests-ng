@@ -14,6 +14,7 @@ import { PostService } from "../private/posts/post.service";
 
 @Injectable()
 export class DataStorageService {
+  private size = '?size=200';
   constructor(
     private http: Http,
     private festivalService: FestivalService,
@@ -22,8 +23,20 @@ export class DataStorageService {
     private photoService: PhotoService,
     private postService: PostService) {}
 
+  private addContentTypeHeader(headers: Headers) {
+    headers.append('Content-type', 'application/json');
+  }
+
+  private addAcceptHeader(headers: Headers) {
+    headers.append('Accept', 'application/json');
+  }
+
+  private addAuthentication(headers: Headers) {
+    headers.append('Authorization', 'Bearer ' + localStorage.token);
+  }
+
   getFestivals() {
-    this.http.get('http://localhost:8000/api/festivals')
+    this.http.get('http://localhost:8000/api/festivals' + this.size)
       .subscribe(
         (response: Response) => {
           const festivals: Festival[] = response.json().data;
@@ -33,7 +46,7 @@ export class DataStorageService {
   }
 
   getArtists() {
-    this.http.get('http://localhost:8000/api/artists')
+    this.http.get('http://localhost:8000/api/artists' + this.size)
       .subscribe(
         (response: Response) => {
           const artists: Artist[] = response.json().data;
@@ -43,7 +56,7 @@ export class DataStorageService {
   }
 
   getGenres() {
-    this.http.get('http://localhost:8000/api/genres')
+    this.http.get('http://localhost:8000/api/genres' + this.size)
       .subscribe(
         (response: Response) => {
           const genres: Genre[] = response.json().data;
@@ -53,7 +66,7 @@ export class DataStorageService {
   }
 
   getPhotos() {
-    this.http.get('http://localhost:8000/api/photos')
+    this.http.get('http://localhost:8000/api/photos' + this.size)
       .subscribe(
         (response: Response) => {
           const photos: Photo[] = response.json().data;
@@ -63,7 +76,7 @@ export class DataStorageService {
   }
 
   getPosts() {
-    this.http.get('http://localhost:8000/api/posts')
+    this.http.get('http://localhost:8000/api/posts' + this.size)
       .subscribe(
         (response: Response) => {
           const posts: Post[] = response.json().data;

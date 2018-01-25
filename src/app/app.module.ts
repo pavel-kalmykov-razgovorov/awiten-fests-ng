@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { DataTableModule } from 'angular2-datatable';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './public/header/header.component';
@@ -27,10 +28,12 @@ import { PhotosComponent } from './private/photos/photos.component';
 import { PostsComponent } from './private/posts/posts.component';
 import { PhotoDetailComponent } from './private/photos/photo-detail/photo-detail.component';
 import { PostDetailComponent } from './private/posts/post-detail/post-detail.component';
-import { PhotoService } from './private/photos/photo.service';
-import { PostService } from './private/posts/post.service';
 import { GenreFilterComponent } from './public/genre-filter/genre-filter.component';
 import { NameFilterComponent } from './public/name-filter/name-filter.component';
+import { PhotoService } from './private/photos/photo.service';
+import { PostService } from './private/posts/post.service';
+import { FestivalsPrivateComponent } from './private/festivals/festivals.component';
+import { ArtistsPrivateComponent } from './private/artists/artists.component';
 
 @NgModule({
   declarations: [
@@ -53,13 +56,16 @@ import { NameFilterComponent } from './public/name-filter/name-filter.component'
     PhotoDetailComponent,
     PostDetailComponent,
     GenreFilterComponent,
-    NameFilterComponent
+    NameFilterComponent,
+    ArtistsPrivateComponent,
+    FestivalsPrivateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    DataTableModule
   ],
   providers: [
     FestivalService,
