@@ -10,13 +10,13 @@
                   </ng-template>
                   <ng-template [ngIf]="authService.getRole() === 'promoter'">
                     <li><a routerLink="/admin">Perfil</a></li>
-                    <li><a routerLink="/admin">Festivales</a></li>
-                    <li><a routerLink="/admin">Noticias de Festivales</a></li>
-                    <li><a routerLink="/admin">Fotos de Festivales</a></li>
+                    <li><a routerLink="festivals">Festivales</a></li>
+                    <li><a routerLink="posts">Noticias de Festivales</a></li>
+                    <li><a routerLink="photos">Fotos de Festivales</a></li>
                   </ng-template>
                   <ng-template [ngIf]="authService.getRole() === 'manager'">
                     <li><a routerLink="/admin">Perfil</a></li>
-                    <li><a routerLink="/admin">Artistas</a></li>
+                    <li><a routerLink="artists">Artistas</a></li>
                   </ng-template>
                 </ng-template>
             </ul>

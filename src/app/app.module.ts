@@ -27,6 +27,8 @@ import { PhotosComponent } from './private/photos/photos.component';
 import { PostsComponent } from './private/posts/posts.component';
 import { PhotoDetailComponent } from './private/photos/photo-detail/photo-detail.component';
 import { PostDetailComponent } from './private/posts/post-detail/post-detail.component';
+import { PhotoService } from "./private/photos/photo.service";
+import { PostService } from "./private/posts/post.service";
 
 @NgModule({
   declarations: [
@@ -60,7 +62,10 @@ import { PostDetailComponent } from './private/posts/post-detail/post-detail.com
     ArtistService,
     DataStorageService,
     AuthService,
-    GenreService],
+    GenreService,
+    PhotoService,
+    PostService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

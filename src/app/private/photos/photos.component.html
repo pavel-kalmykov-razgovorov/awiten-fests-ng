@@ -1,3 +1,12 @@
 <p>
   photos works!
 </p>
+<div class="row">
+    <div class="col-xs-12">
+      <a href="#" class="list-group-item clearfix" *ngFor="let photo of photos">
+        <div class="pull-left">
+          <h4 class="list-group-item-heading">{{ photo.id }} And {{ photo.name }}</h4>
+        </div>
+      </a>
+    </div>
+</div>

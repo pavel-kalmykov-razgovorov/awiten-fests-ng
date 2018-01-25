@@ -9,6 +9,8 @@ import {PrivateComponent} from './private/private.component';
 import { SigninComponent } from './private/auth/signin/signin.component';
 import { SignupComponent } from './private/auth/signup/signup.component';
 import { GenresComponent } from './private/genres/genres.component';
+import { PhotosComponent } from "./private/photos/photos.component";
+import { PostsComponent } from "./private/posts/posts.component";
 
 const appRoutes: Routes = [
   {
@@ -44,6 +46,22 @@ const appRoutes: Routes = [
       {
         path: 'genres',
         component: GenresComponent
+      },
+      {
+        path: 'photos',
+        component: PhotosComponent
+      },
+      {
+        path: 'posts',
+        component: PostsComponent
+      },
+      {
+        path: 'festivals',
+        component: FestivalsComponent
+      },
+      {
+        path: 'artists',
+        component: ArtistsComponent
       }
     ]
   },
