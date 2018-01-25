@@ -16,6 +16,9 @@ import { PrivateComponent } from './private/private.component';
 import { FooterComponent } from './public/footer/footer.component';
 import { LeftMenuComponent } from "./private/left-menu/left-menu.component";
 import { PrivateHeaderComponent } from "./private/private-header/private-header.component";
+import { SigninComponent } from './private/auth/signin/signin.component';
+import { SignupComponent } from './private/auth/signup/signup.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,12 +31,15 @@ import { PrivateHeaderComponent } from "./private/private-header/private-header.
     PrivateComponent,
     FooterComponent,
     PrivateHeaderComponent,
-    LeftMenuComponent
+    LeftMenuComponent,
+    SigninComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
+    FormsModule
   ],
   providers: [FestivalService, ArtistService, DataStorageService],
   bootstrap: [AppComponent]
