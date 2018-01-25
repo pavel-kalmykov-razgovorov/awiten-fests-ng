@@ -1,9 +1,8 @@
-export class Festival {
-  public name: string;
-  public location: string;
-
-  constructor(name: string, location: string) {
-    this.name = name;
-    this.location = location;
-  }
+export interface Festival {
+  id: number;
+  name: string;
+  date: Date;
+  province: string;
+  location: string;
+  logoUrl: string;
 }

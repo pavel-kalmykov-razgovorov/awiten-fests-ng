@@ -1300,7 +1300,7 @@ a.scrollup:hover {
 .card {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  min-height: 200px;
+  min-height: 250px;
   transition: 0.3s;
   margin-bottom: 15px;
 }
@@ -1327,6 +1327,10 @@ a.scrollup:hover {
 /* Add some padding inside the card container */
 .card-body {
   padding: 2px 16px;
+}
+
+.card-body p {
+  margin-bottom: 1px;
 }
 
 @media (max-width: 992px) {
