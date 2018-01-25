@@ -5,11 +5,18 @@ import { Genre } from './genre.model';
 
 export class GenreService {
   genresChanged = new Subject<Genre[]>();
+  genreChanged = new Subject<Genre>();
   private genres: Genre[] = [];
+  private genre: Genre = undefined;
 
   setGenres(genres: Genre[]) {
     this.genres = genres;
     this.genresChanged.next(this.genres.slice());
+  }
+
+  setGenre(genre: Genre) {
+    this.genre = genre;
+    this.genreChanged.next(this.genre);
   }
 
   getGenres() {
@@ -17,6 +24,6 @@ export class GenreService {
   }
 
   getGenre(id: number) {
-    return this.genres[id];
+    return this.genre;
   }
 }

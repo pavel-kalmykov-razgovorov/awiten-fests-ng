@@ -65,6 +65,16 @@ export class DataStorageService {
       );
   }
 
+  getGenre(id: number) {
+    this.http.get(`http://localhost:8000/api/genres/${id}`)
+      .subscribe(
+        (response: Response) => {
+          const genre: Genre = response.json().data;
+          this.genreService.setGenre(genre);
+        }
+      );
+  }
+
   getPhotos() {
     this.http.get(`http://localhost:8000/api/photos?size=${this.size}`)
       .subscribe(

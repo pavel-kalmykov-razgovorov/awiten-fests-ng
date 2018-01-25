@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Subscription } from "rxjs";
 import { Genre } from "../genre.model";
 import { GenreService } from "../genre.service";
@@ -10,7 +10,9 @@ import { DataStorageService } from "../../../shared/data-storage.service";
   styleUrls: ['./genre-list.component.css']
 })
 export class GenreListComponent implements OnInit, OnDestroy {
-  genres: Genre[];
+  @Input() genres: Genre[];
+  @Input() id: number;
+
   subscription: Subscription;
 
   constructor(

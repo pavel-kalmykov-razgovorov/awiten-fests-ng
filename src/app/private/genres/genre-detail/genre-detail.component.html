@@ -1,3 +1,19 @@
-<p>
-  genre-detail works!
-</p>
+<div *ngIf="genre">
+  <div class="container" style="color: black">
+    <h1 class="page-header">{{ genre.name }}</h1>
+    <ul class="list-group">
+      <li class="list-group-item"><strong>id: </strong>{{ genre.id }}</li>
+      <li class="list-group-item"><strong>Nombre: </strong>{{ genre.name }}</li>
+      <li class="list-group-item"><strong>Festivales: </strong>
+        <ul>
+          <li class="arrow-list-glyph" *ngFor="let festival of genre.festivals">{{ festival.name }}</li>
+        </ul>
+      </li>
+      <li class="list-group-item"><strong>Artists: </strong>
+        <ul>
+          <li class="arrow-list-glyph" *ngFor="let artist of genre.artists">{{ artist.name }}</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
