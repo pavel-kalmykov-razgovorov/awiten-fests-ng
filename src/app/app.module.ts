@@ -15,8 +15,8 @@ import { DataStorageService } from './shared/data-storage.service';
 import { PublicComponent } from './public/public.component';
 import { PrivateComponent } from './private/private.component';
 import { FooterComponent } from './public/footer/footer.component';
-import { LeftMenuComponent } from "./private/left-menu/left-menu.component";
-import { PrivateHeaderComponent } from "./private/private-header/private-header.component";
+import { LeftMenuComponent } from './private/left-menu/left-menu.component';
+import { PrivateHeaderComponent } from './private/private-header/private-header.component';
 import { SigninComponent } from './private/auth/signin/signin.component';
 import { SignupComponent } from './private/auth/signup/signup.component';
 import { FormsModule } from '@angular/forms';
@@ -28,6 +28,8 @@ import { PhotosComponent } from './private/photos/photos.component';
 import { PostsComponent } from './private/posts/posts.component';
 import { PhotoDetailComponent } from './private/photos/photo-detail/photo-detail.component';
 import { PostDetailComponent } from './private/posts/post-detail/post-detail.component';
+import { GenreFilterComponent } from './public/genre-filter/genre-filter.component';
+import { NameFilterComponent } from './public/name-filter/name-filter.component';
 import { PhotoService } from './private/photos/photo.service';
 import { PostService } from './private/posts/post.service';
 import { FestivalsPrivateComponent } from './private/festivals/festivals.component';
@@ -54,6 +56,8 @@ import { GenreListComponent } from './private/genres/genre-list/genre-list.compo
     PostsComponent,
     PhotoDetailComponent,
     PostDetailComponent,
+    GenreFilterComponent,
+    NameFilterComponent,
     ArtistsPrivateComponent,
     FestivalsPrivateComponent,
     GenreListComponent

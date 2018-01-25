@@ -1,11 +1,27 @@
-<p>artists works!</p>
-<div class="row">
+<app-name-filter elementType="artista"></app-name-filter>
+<div class="container" style="margin-top: 20px">
+  <div class="row">
     <div class="col-xs-12">
-      <a href="#" class="list-group-item clearfix" *ngFor="let artist of artists">
-        <div class="pull-left">
-          <h4 class="list-group-item-heading">{{ artist.name }}</h4>
-          <p class="list-group-item-text">{{ artist.website }}</p>
+      <div *ngIf="artists?.length > 0; else no_artists">
+        <h1 id="list-title">Artistas</h1>
+        <app-genre-filter></app-genre-filter>
+        <div class="col-sm-9 col-md-9">
+          <div class="center col-md-4" *ngFor="let artist of artists">
+            <div class="card">
+              <img src="{{artist.profileUrl}}" alt="Avatar">
+              <div class="card-body">
+                <h4><strong>{{artist.name}}</strong></h4>
+                <p>{{artist.country}}</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </a>
+      </div>
+      <ng-template #no_artists>
+        <div class="alert alert-info text-center">
+          <h1>No hemos podido encontrar ningún artista 😞</h1>
+        </div>
+      </ng-template>
     </div>
+  </div>
 </div>

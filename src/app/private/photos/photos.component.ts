@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Photo } from "./photo.model";
-import { Subscription } from "rxjs/Subscription";
-import { PhotoService } from "./photo.service";
-import { DataStorageService } from "../../shared/data-storage.service";
+import { Photo } from './photo.model';
+import { Subscription } from 'rxjs/Subscription';
+import { PhotoService } from './photo.service';
+import { DataStorageService } from '../../shared/data-storage.service';
 
 @Component({
   selector: 'app-photos',

@@ -1,11 +1,28 @@
-<p>festivals works!</p>
-<div class="row">
+<app-name-filter elementType="festival"></app-name-filter>
+<div class="container" style="margin-top: 20px">
+  <div class="row">
     <div class="col-xs-12">
-      <a href="#" class="list-group-item clearfix" *ngFor="let festival of festivals">
-        <div class="pull-left">
-          <h4 class="list-group-item-heading">{{ festival.name }} And {{ festivals.length }}</h4>
-          <p class="list-group-item-text">{{ festival.location }}</p>
+      <div *ngIf="festivals?.length > 0; else no_festivals">
+        <h1 id="list-title">Festivales</h1>
+        <app-genre-filter></app-genre-filter>
+        <div class="col-sm-9 col-md-9">
+          <div class="center col-md-4" *ngFor="let festival of festivals">
+            <div class="card">
+              <img src="{{festival.logoUrl}}" alt="Avatar">
+              <div class="card-body">
+                <h4><strong>{{festival.name}}</strong></h4>
+                <p>{{festival.date}}</p>
+                <p>{{festival.location}} ({{festival.province}})</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </a>
+      </div>
+      <ng-template #no_festivals>
+        <div class="alert alert-info text-center">
+          <h1>No hemos podido encontrar ningún festival 😞</h1>
+        </div>
+      </ng-template>
     </div>
+  </div>
 </div>

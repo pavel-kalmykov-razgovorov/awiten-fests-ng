@@ -1,9 +1,9 @@
-export class Artist {
-  public name: string;
-  public website: string;
-
-  constructor(name: string, website: string) {
-    this.name = name;
-    this.website = website;
-  }
+export interface Artist {
+  id: number;
+  name: string;
+  country: string;
+  soundcloud: string;
+  website: string;
+  profileUrl: string;
+  headerUrl: string;
 }
