@@ -15,4 +15,8 @@ export class GenreService {
   getGenres() {
     return this.genres.slice();
   }
+
+  getGenre(id: number) {
+    return this.genres[id];
+  }
 }

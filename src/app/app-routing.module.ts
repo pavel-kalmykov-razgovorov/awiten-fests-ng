@@ -13,6 +13,8 @@ import { PhotosComponent } from "./private/photos/photos.component";
 import { PostsComponent } from "./private/posts/posts.component";
 import { ArtistsPrivateComponent } from "./private/artists/artists.component";
 import { FestivalsPrivateComponent } from "./private/festivals/festivals.component";
+import { GenreDetailComponent } from "./private/genres/genre-detail/genre-detail.component";
+import { GenreListComponent } from "./private/genres/genre-list/genre-list.component";
 
 const appRoutes: Routes = [
   {
@@ -47,7 +49,17 @@ const appRoutes: Routes = [
       },
       {
         path: 'genres',
-        component: GenresComponent
+        component: GenresComponent,
+        children: [
+          {
+            path: '',
+            component: GenreListComponent
+          },
+          {
+            path: ':id',
+            component: GenreDetailComponent
+          }
+        ]
       },
       {
         path: 'photos',

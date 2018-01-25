@@ -32,6 +32,7 @@ import { PhotoService } from './private/photos/photo.service';
 import { PostService } from './private/posts/post.service';
 import { FestivalsPrivateComponent } from './private/festivals/festivals.component';
 import { ArtistsPrivateComponent } from './private/artists/artists.component';
+import { GenreListComponent } from './private/genres/genre-list/genre-list.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ArtistsPrivateComponent } from './private/artists/artists.component';
     PhotoDetailComponent,
     PostDetailComponent,
     ArtistsPrivateComponent,
-    FestivalsPrivateComponent
+    FestivalsPrivateComponent,
+    GenreListComponent
   ],
   imports: [
     BrowserModule,
