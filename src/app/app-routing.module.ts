@@ -11,6 +11,8 @@ import { SignupComponent } from './private/auth/signup/signup.component';
 import { GenresComponent } from './private/genres/genres.component';
 import { PhotosComponent } from "./private/photos/photos.component";
 import { PostsComponent } from "./private/posts/posts.component";
+import { ArtistsPrivateComponent } from "./private/artists/artists.component";
+import { FestivalsPrivateComponent } from "./private/festivals/festivals.component";
 
 const appRoutes: Routes = [
   {
@@ -57,11 +59,11 @@ const appRoutes: Routes = [
       },
       {
         path: 'festivals',
-        component: FestivalsComponent
+        component: FestivalsPrivateComponent
       },
       {
         path: 'artists',
-        component: ArtistsComponent
+        component: ArtistsPrivateComponent
       }
     ]
   },

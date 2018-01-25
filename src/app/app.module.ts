@@ -28,8 +28,10 @@ import { PhotosComponent } from './private/photos/photos.component';
 import { PostsComponent } from './private/posts/posts.component';
 import { PhotoDetailComponent } from './private/photos/photo-detail/photo-detail.component';
 import { PostDetailComponent } from './private/posts/post-detail/post-detail.component';
-import { PhotoService } from "./private/photos/photo.service";
-import { PostService } from "./private/posts/post.service";
+import { PhotoService } from './private/photos/photo.service';
+import { PostService } from './private/posts/post.service';
+import { FestivalsPrivateComponent } from './private/festivals/festivals.component';
+import { ArtistsPrivateComponent } from './private/artists/artists.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { PostService } from "./private/posts/post.service";
     PhotosComponent,
     PostsComponent,
     PhotoDetailComponent,
-    PostDetailComponent
+    PostDetailComponent,
+    ArtistsPrivateComponent,
+    FestivalsPrivateComponent
   ],
   imports: [
     BrowserModule,
