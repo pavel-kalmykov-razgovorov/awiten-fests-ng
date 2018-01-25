@@ -8,9 +8,21 @@ export class AuthService {
     private http: Http,
     private router: Router) {}
 
+  private addContentTypeHeader(headers: Headers) {
+    headers.append('Content-type', 'application/json');
+  }
+
+  private addAcceptHeader(headers: Headers) {
+    headers.append('Accept', 'application/json');
+  }
+
+  private addAuthentication(headers: Headers) {
+    headers.append('Authorization', 'Bearer ' + localStorage.token);
+  }
+
   login(username: string, password: string) {
     const headers = new Headers();
-    headers.append('Content-type', 'application/json');
+    this.addContentTypeHeader(headers);
     this.http.post('http://localhost:8000/api/auth/login', JSON.stringify({
       username: username,
       password: password
@@ -19,6 +31,7 @@ export class AuthService {
         res => {
           this.router.navigate(['/']);
           localStorage.setItem('token', res.json().access_token);
+          localStorage.setItem('user', res.json().user)
         },
         err => {
           console.log(JSON.stringify(err.json()));
@@ -28,9 +41,14 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
   }
 
   isAuthenticated() {
     return localStorage.token;
+  }
+
+  getRole() {
+    return localStorage.user.role;
   }
 }

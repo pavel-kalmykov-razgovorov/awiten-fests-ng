@@ -3,10 +3,16 @@
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
                 <li id="home" class="active">
-                  <a routerLink="/admin">Inicio
-                    <span class="sr-only">(current)</span>
-                  </a>
+                  <a routerLink="/admin">Inicio</a>
                 </li>
+                <ng-template [ngIf]="authService.isAuthenticated()">
+                  <li>
+                    <a routerLink="/admin">Usuarios</a>
+                  </li>
+                  <li>
+                    <a routerLink="genres">Géneros musicales</a>
+                  </li>
+                </ng-template>
             </ul>
         </div>
         <router-outlet></router-outlet>

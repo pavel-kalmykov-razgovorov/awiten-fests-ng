@@ -8,6 +8,7 @@ import {PublicComponent} from './public/public.component';
 import {PrivateComponent} from './private/private.component';
 import { SigninComponent } from './private/auth/signin/signin.component';
 import { SignupComponent } from './private/auth/signup/signup.component';
+import { GenresComponent } from './private/genres/genres.component';
 
 const appRoutes: Routes = [
   {
@@ -39,6 +40,10 @@ const appRoutes: Routes = [
       {
         path: 'signup',
         component: SignupComponent
+      },
+      {
+        path: 'genres',
+        component: GenresComponent
       }
     ]
   },
