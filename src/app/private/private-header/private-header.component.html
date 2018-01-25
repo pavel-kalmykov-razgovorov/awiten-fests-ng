@@ -5,9 +5,14 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><a routerLink="signin">Iniciar Sesión</a></li>
-        <li><a routerLink="signup">Registrarse</a></li>
-        <li><a routerLink="/">Public Mode</a></li>
+        <ng-template [ngIf]="!authService.isAuthenticated()">
+          <li><a routerLink="signin">Iniciar Sesión</a></li>
+          <li><a routerLink="signup">Registrarse</a></li>
+        </ng-template>
+        <ng-template [ngIf]="authService.isAuthenticated()">
+          <li><a style="cursor: pointer;" (click)="onLogout()">Cerrar Sesión</a></li>
+        </ng-template>
+          <li><a routerLink="/">Public Mode</a></li>
       </ul>
     </div>
   </div>

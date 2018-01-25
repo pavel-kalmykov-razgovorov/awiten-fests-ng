@@ -19,6 +19,7 @@ import { PrivateHeaderComponent } from "./private/private-header/private-header.
 import { SigninComponent } from './private/auth/signin/signin.component';
 import { SignupComponent } from './private/auth/signup/signup.component';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from "./private/auth/auth.service";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { FormsModule } from '@angular/forms';
     HttpModule,
     FormsModule
   ],
-  providers: [FestivalService, ArtistService, DataStorageService],
+  providers: [FestivalService, ArtistService, DataStorageService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
