@@ -17,16 +17,22 @@
                 <mfDefaultSorter by="name">Name</mfDefaultSorter>
             </th>
             <th></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let genre of mf.data" [routerLink]="[genre.id]" style="cursor: pointer;">
-            <td>{{genre.id}}</td>
-            <td>{{genre.name}}</td>
+        <tr *ngFor="let genre of mf.data">
+            <td [routerLink]="[genre.id]" style="cursor: pointer;">{{genre.id}}</td>
+            <td [routerLink]="[genre.id]" style="cursor: pointer;">{{genre.name}}</td>
             <td>
-                <a (click)="onEditGenre(genre.id)" style="color: #1BBD36;">
+                <a (click)="onEditGenre(genre.id)" style="color: #1BBD36; cursor: pointer;">
                   <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                 </a>
+            </td>
+            <td>
+              <a (click)="onDeleteGenre(genre.id)" style="color: #9e0f0f; cursor: pointer;">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              </a>
             </td>
         </tr>
         </tbody>

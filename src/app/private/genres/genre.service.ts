@@ -26,4 +26,19 @@ export class GenreService {
   getGenre(id: number) {
     return this.genre;
   }
+
+  addGenre(genre: Genre) {
+    this.genres.push();
+    this.genresChanged.next(this.genres.slice());
+  }
+
+  updateGenre(id: number, genre: Genre) {
+    this.genres[id-1] = genre;
+    this.genresChanged.next(this.genres.slice());
+  }
+
+  deleteGenre(id: number) {
+    this.genres.splice(id-1, 1);
+    this.genresChanged.next(this.genres.slice());
+  }
 }

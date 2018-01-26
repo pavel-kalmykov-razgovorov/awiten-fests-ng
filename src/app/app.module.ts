@@ -19,7 +19,7 @@ import { LeftMenuComponent } from './private/left-menu/left-menu.component';
 import { PrivateHeaderComponent } from './private/private-header/private-header.component';
 import { SigninComponent } from './private/auth/signin/signin.component';
 import { SignupComponent } from './private/auth/signup/signup.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './private/auth/auth.service';
 import { GenresComponent } from './private/genres/genres.component';
 import { GenreService } from './private/genres/genre.service';
@@ -90,6 +90,7 @@ import { PostEditComponent } from './private/posts/post-edit/post-edit.component
     AppRoutingModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     DataTableModule,
     NgxPaginationModule
   ],

@@ -1,3 +1,11 @@
-<p>
-  genre-edit works!
-</p>
+<div class="container" style="color: black">
+  <h1 class="page-header">Editar</h1>
+  <form [formGroup]="genreForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input type="text" id="name" name="name" formControlName="name" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-success">Guardar Cambios</button>
+    <button type="button" class="btn btn-danger">Cancelar</button>
+  </form>
+</div>

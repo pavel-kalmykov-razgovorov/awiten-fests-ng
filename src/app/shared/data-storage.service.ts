@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
 
 import { FestivalService } from '../public/festivals/festival.service';
 import { Festival } from '../public/festivals/festival.model';
@@ -93,6 +93,51 @@ export class DataStorageService {
           this.genreService.setGenre(genre);
         }
       );
+  }
+
+  addGenre(name: string) {
+    const headers = new Headers();
+    this.addContentTypeHeader(headers);
+    this.addAuthentication(headers);
+    this.addAcceptHeader(headers);
+    this.http.post('http://localhost:8000/api/genres/', JSON.stringify({
+      name: name,
+    }), { headers: headers })
+      .subscribe(
+        (response: Response) => {
+          const genre: Genre = response.json().data;
+          this.genreService.addGenre(genre);
+        }
+      )
+  }
+
+  updateGenre(id: number, name: string) {
+    const headers = new Headers();
+    this.addContentTypeHeader(headers);
+    this.addAuthentication(headers);
+    this.addAcceptHeader(headers);
+    this.http.put(`http://localhost:8000/api/genres/${id}`, JSON.stringify({
+      name: name,
+    }), { headers: headers })
+      .subscribe(
+        (response: Response) => {
+          const genre: Genre = response.json().data;
+          this.genreService.updateGenre(id, genre);
+        }
+      )
+  }
+
+  deleteGenre(id: number) {
+    const headers = new Headers();
+    this.addContentTypeHeader(headers);
+    this.addAuthentication(headers);
+    this.addAcceptHeader(headers);
+    this.http.delete(`http://localhost:8000/api/genres/${id}`, { headers: headers })
+      .subscribe(
+        (response: Response) => {
+          this.genreService.deleteGenre(id);
+        }
+      )
   }
 
   getPhotos() {

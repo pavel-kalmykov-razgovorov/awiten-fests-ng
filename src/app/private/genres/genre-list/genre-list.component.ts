@@ -31,6 +31,11 @@ export class GenreListComponent implements OnInit, OnDestroy {
     this.router.navigate([`${id}/edit`], { relativeTo: this.route });
   }
 
+  onDeleteGenre(id: number) {
+    this.dataStorageService.deleteGenre(id);
+    this.router.navigate(['/admin/genres'], { relativeTo: this.route });
+  }
+
   ngOnInit() {
     this.subscription = this.genreService.genresChanged
       .subscribe(
