@@ -1,42 +1,51 @@
-import { Component, OnInit } from '@angular/core';
-import { Festival } from "../festival.model";
-import { Subscription } from "rxjs";
-import { FestivalService } from "../festival.service";
-import { Router, ActivatedRoute } from "@angular/router";
-import { DataStorageService } from "../../../shared/data-storage.service";
-import { Artist } from "../../artists/artist.model";
-import { ArtistService } from "../../artists/artist.service";
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Festival} from '../festival.model';
+import {Subscription} from 'rxjs';
+import {FestivalService} from '../festival.service';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {DataStorageService} from '../../../shared/data-storage.service';
+import {Artist} from '../../artists/artist.model';
+import {ArtistService} from '../../artists/artist.service';
 
 @Component({
   selector: 'app-festival-public-detail',
   templateUrl: './festival-public-detail.component.html',
   styleUrls: ['./festival-public-detail.component.css']
 })
-export class FestivalPublicDetailComponent implements OnInit {
+export class FestivalPublicDetailComponent implements OnInit, OnDestroy {
   festivals: Festival[];
   artists: Artist[];
   id: number;
 
-  subscription: Subscription;
+  artistsSubscription: Subscription;
+  festivalSubscription: Subscription;
+  festival: Festival;
 
-  constructor(
-    private festivalService: FestivalService,
-    private artistService: ArtistService,
-    private router: Router,
-    private route: ActivatedRoute,
-    private dataStorageService: DataStorageService) { }
+  constructor(private festivalService: FestivalService,
+              private artistService: ArtistService,
+              private router: Router,
+              private route: ActivatedRoute,
+              private dataStorageService: DataStorageService) {
+  }
 
   ngOnInit() {
-    this.subscription = this.artistService.artistsChanged
+    this.route.params
       .subscribe(
-        (artists: Artist[]) => {
-          this.artists = artists;
+        (params: Params) => {
+          this.id = +params['id'];
+          this.dataStorageService.getFestival(this.id);
+          this.festivalSubscription = this.festivalService.festivalChanged
+            .subscribe(
+              (festival: Festival) => {
+                this.festival = festival;
+              }
+            );
+          this.dataStorageService.getFestival(this.id);
         }
       );
-    this.dataStorageService.getArtists();
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.artistsSubscription.unsubscribe();
   }
 }

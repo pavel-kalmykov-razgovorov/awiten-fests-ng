@@ -1,9 +1,9 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { Festival } from "../../../public/festivals/festival.model";
-import { Subscription } from "rxjs";
-import { FestivalService } from "../../../public/festivals/festival.service";
-import { ActivatedRoute, Params, Router } from "@angular/router";
-import { DataStorageService } from "../../../shared/data-storage.service";
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Festival} from '../../../public/festivals/festival.model';
+import {FestivalService} from '../../../public/festivals/festival.service';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {DataStorageService} from '../../../shared/data-storage.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-festival-detail',
@@ -16,14 +16,14 @@ export class FestivalDetailComponent implements OnInit, OnDestroy {
 
   subscription: Subscription;
 
-  constructor(
-    private festivalService: FestivalService,
-    private router: Router,
-    private route: ActivatedRoute,
-    private dataStorageService: DataStorageService) { }
+  constructor(private festivalService: FestivalService,
+              private router: Router,
+              private route: ActivatedRoute,
+              private dataStorageService: DataStorageService) {
+  }
 
   onEditFestival(id: number) {
-    this.router.navigate(['../', this.id, 'edit'], { relativeTo: this.route });
+    this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route});
   }
 
   ngOnInit() {

@@ -1,52 +1,32 @@
 <div class="container">
-  <div class="container">
-    <h1 class="page-header" style="color: black">Artistas</h1>
-    <div class="table-bordered table-responsive" style="color: black">
-      <table class="table table-striped" [mfData]="artists" #mf="mfDataTable" [mfRowsOnPage]="5">
-          <thead>
-          <tr>
-              <th style="width: 5%">
-                  <mfDefaultSorter by="nombre">ID</mfDefaultSorter>
-              </th>
-              <th style="width: 20%">
-                  <mfDefaultSorter by="nombre">Nombre</mfDefaultSorter>
-              </th>
-              <th style="width: 20%">
-                  <mfDefaultSorter by="website">País</mfDefaultSorter>
-              </th>
-              <th style="width: 20%">
-                  <mfDefaultSorter by="nombre">SoundCloud</mfDefaultSorter>
-              </th>
-              <th style="width: 20%">
-                  <mfDefaultSorter by="nombre">Website</mfDefaultSorter>
-              </th>
-              <th style="width: 20%">
-                  <mfDefaultSorter by="nombre">URL imagen perfil</mfDefaultSorter>
-              </th>
-              <th style="width: 20%">
-                  <mfDefaultSorter by="nombre">URL imagen principal</mfDefaultSorter>
-              </th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr *ngFor="let artist of mf.data">
-              <td >{{artist.id}}</td>
-              <td >{{artist.name}}</td>
-              <td >{{artist.country}}</td>
-              <td >{{artist.soundcloud}}</td>
-              <td >{{artist.website}}</td>
-              <td >{{artist.profileUrl}}</td>
-              <td >{{artist.headerUrl}}</td>
-          </tr>
-          </tbody>
-          <tfoot>
-          <tr>
-              <td colspan="4">
-                  <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
-              </td>
-          </tr>
-          </tfoot>
-      </table>
-    <div class="table-bordered table-responsive">
+  <div class="container" style="color: black">
+    <ul class="list-group" *ngIf="festival">
+      <li class="list-group-item"><strong>id: </strong>{{ festival.id }}</li>
+      <li class="list-group-item"><strong>Nombre: </strong>{{ festival.name }}</li>
+      <li class="list-group-item"><strong>Fecha: </strong>{{ festival.date }}</li>
+      <li class="list-group-item"><strong>Provincia: </strong>{{ festival.province }}</li>
+      <li class="list-group-item"><strong>Localización: </strong>{{ festival.location }}</li>
+      <li class="list-group-item"><strong>logoUrl: </strong><a href="{{ festival.logoUrl }}">{{ festival.logoUrl }}</a></li>
+      <li class="list-group-item"><strong>Artistas: </strong>
+        <ul>
+          <li class="arrow-list-glyph" *ngFor="let artist of festival.artists">{{ artist.name }}</li>
+        </ul>
+      </li>
+      <li class="list-group-item"><strong>Géneros: </strong>
+        <ul>
+          <li class="arrow-list-glyph" *ngFor="let genre of festival.genres">{{ genre.name }}</li>
+        </ul>
+      </li>
+      <li class="list-group-item"><strong>Fotos: </strong>
+        <ul>
+          <li class="arrow-list-glyph" *ngFor="let photo of festival.photos"><a href="{{ photo.url }}">{{ photo.name }}</a></li>
+        </ul>
+      </li>
+      <li class="list-group-item"><strong>Noticias: </strong>
+        <ul>
+          <li class="arrow-list-glyph" *ngFor="let post of festival.posts">{{ post.title }}</li>
+        </ul>
+      </li>
+    </ul>
   </div>
 </div>

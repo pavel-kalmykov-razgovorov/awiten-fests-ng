@@ -1,48 +1,25 @@
-<div class="container">
-  <div class="container">
-    <h1 class="page-header" style="color: black">Festivales</h1>
-    <div class="table-bordered table-responsive" style="color: black">
-      <table class="table table-hover" [mfData]="festivals" #mf="mfDataTable" [mfRowsOnPage]="5">
-          <thead>
-          <tr>
-              <th style="width: 5%">
-                  <mfDefaultSorter by="nombre">Id</mfDefaultSorter>
-              </th>
-              <th style="width: 15%">
-                  <mfDefaultSorter by="website">Nombre</mfDefaultSorter>
-              </th>
-              <th style="width: 15%">
-                  <mfDefaultSorter by="website">Fecha</mfDefaultSorter>
-              </th>
-              <th style="width: 20%">
-                  <mfDefaultSorter by="website">Localización</mfDefaultSorter>
-              </th>
-              <th style="width: 10%">
-                  <mfDefaultSorter by="website">Provincia</mfDefaultSorter>
-              </th>
-              <th style="width: 25%">
-                  <mfDefaultSorter by="website">URL del logo del festival</mfDefaultSorter>
-              </th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr *ngFor="let festival of mf.data">
-            <td>{{festival.id}}</td>
-            <td>{{festival.name}}</td>
-            <td>{{festival.date}}</td>
-            <td>{{festival.location}}</td>
-            <td>{{festival.province}}</td>
-            <td>{{festival.logoUrl}}</td>
-          </tr>
-          </tbody>
-          <tfoot>
-          <tr>
-              <td colspan="4">
-                  <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
-              </td>
-          </tr>
-          </tfoot>
-      </table>
-    <div class="table-bordered table-responsive">
+<div *ngIf="artist">
+  <div class="container" style="color: black">
+    <h1 class="page-header">{{ artist.name }}</h1>
+    <ul class="list-group">
+      <li class="list-group-item"><strong>id: </strong>{{ artist.id }}</li>
+      <li class="list-group-item"><strong>Nombre: </strong>{{ artist.name }}</li>
+      <li class="list-group-item"><strong>País: </strong>{{ artist.country }}</li>
+      <li class="list-group-item"><strong>SoundCloud: </strong>{{ artist.soundcloud }}</li>
+      <li class="list-group-item"><strong>Página Web: </strong>{{ artist.website }}</li>
+      <li class="list-group-item"><strong>Imagen de Perfil: </strong>{{ artist.profileUrl }}</li>
+      <li class="list-group-item"><strong>Imagen de cabecera: </strong><a href="{{ artist.headerUrl }}">{{ artist.headerUrl }}</a></li>
+      <li class="list-group-item"><strong>Festivales: </strong>
+        <ul>
+          <li class="arrow-list-glyph" *ngFor="let festival of artist.festivals">{{ festival.name }}</li>
+        </ul>
+      </li>
+      <li class="list-group-item"><strong>Géneros: </strong>
+        <ul>
+          <li class="arrow-list-glyph" *ngFor="let genre of artist.genres">{{ genre.name }}</li>
+        </ul>
+      </li>
+    </ul>
+    <button type="button" class="btn btn-success" (click)="onEditArtist(artist.id)">Editar</button>
   </div>
 </div>
