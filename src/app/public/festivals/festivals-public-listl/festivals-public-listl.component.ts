@@ -11,7 +11,8 @@ import { DataStorageService } from "../../../shared/data-storage.service";
   templateUrl: './festivals-public-listl.component.html',
   styleUrls: ['./festivals-public-listl.component.css']
 })
-export class FestivalsPublicListlComponent implements OnInit {  festivals: Festival[];
+export class FestivalsPublicListlComponent implements OnInit {
+  festivals: Festival[];
   subscription: Subscription;
   config: PaginationInstance = {
     id: 'custom',
@@ -33,9 +34,5 @@ export class FestivalsPublicListlComponent implements OnInit {  festivals: Festi
         }
       );
     this.dataStorageService.getFestivals();
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 }

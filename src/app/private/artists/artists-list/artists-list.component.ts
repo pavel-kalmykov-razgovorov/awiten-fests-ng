@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Artist } from "../../../public/artists/artist.model";
 import { Subscription } from "rxjs";
 import { ArtistService } from "../../../public/artists/artist.service";
@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from "@angular/router";
   templateUrl: './artists-list.component.html',
   styleUrls: ['./artists-list.component.css']
 })
-export class ArtistsListComponent implements OnInit, OnDestroy {
+export class ArtistsListComponent implements OnInit {
   artists: Artist[];
   id: number;
 
@@ -43,9 +43,5 @@ export class ArtistsListComponent implements OnInit, OnDestroy {
         }
       );
     this.dataStorageService.getArtists();
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 }

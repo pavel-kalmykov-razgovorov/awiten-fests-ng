@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Genre } from '../genre.model';
 import { GenreService } from '../genre.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { DataStorageService } from '../../../shared/data-storage.service';
   templateUrl: './genre-detail.component.html',
   styleUrls: ['./genre-detail.component.css']
 })
-export class GenreDetailComponent implements OnInit, OnDestroy {
+export class GenreDetailComponent implements OnInit {
   genre: Genre;
   id: number;
 
@@ -40,9 +40,5 @@ export class GenreDetailComponent implements OnInit, OnDestroy {
           this.dataStorageService.getGenre(this.id);
         }
       );
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 }

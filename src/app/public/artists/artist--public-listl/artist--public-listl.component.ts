@@ -33,8 +33,4 @@ export class ArtistPublicListlComponent implements OnInit {
       .subscribe((artists: Artist[]) => this.artists = artists);
     this.dataStorageService.getArtists();
   }
-
-  ngOnDestroy() {
-    this.artistsSubscription.unsubscribe();
-  }
 }

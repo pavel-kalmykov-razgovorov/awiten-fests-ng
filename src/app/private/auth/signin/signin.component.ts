@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from "../auth.service";
 
@@ -7,7 +7,7 @@ import { AuthService } from "../auth.service";
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
-export class SigninComponent implements OnInit, OnDestroy {
+export class SigninComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
@@ -17,9 +17,5 @@ export class SigninComponent implements OnInit, OnDestroy {
     const username = f.value.username;
     const password = f.value.password;
     this.authService.login(username, password);
-  }
-
-  ngOnDestroy() {
-
   }
 }

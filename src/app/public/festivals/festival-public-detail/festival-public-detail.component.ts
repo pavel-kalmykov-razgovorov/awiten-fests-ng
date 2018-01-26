@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Festival} from '../festival.model';
 import {Subscription} from 'rxjs';
 import {FestivalService} from '../festival.service';
@@ -12,7 +12,7 @@ import {ArtistService} from '../../artists/artist.service';
   templateUrl: './festival-public-detail.component.html',
   styleUrls: ['./festival-public-detail.component.css']
 })
-export class FestivalPublicDetailComponent implements OnInit, OnDestroy {
+export class FestivalPublicDetailComponent implements OnInit {
   festivals: Festival[];
   artists: Artist[];
   id: number;
@@ -43,9 +43,5 @@ export class FestivalPublicDetailComponent implements OnInit, OnDestroy {
           this.dataStorageService.getFestival(this.id);
         }
       );
-  }
-
-  ngOnDestroy() {
-    this.artistsSubscription.unsubscribe();
   }
 }

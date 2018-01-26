@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Genre } from '../genre.model';
 import { GenreService } from '../genre.service';
@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from "@angular/router";
   templateUrl: './genre-list.component.html',
   styleUrls: ['./genre-list.component.css']
 })
-export class GenreListComponent implements OnInit, OnDestroy {
+export class GenreListComponent implements OnInit {
   genres: Genre[];
   id: number;
 
@@ -43,9 +43,5 @@ export class GenreListComponent implements OnInit, OnDestroy {
         }
       );
     this.dataStorageService.getGenres();
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 }

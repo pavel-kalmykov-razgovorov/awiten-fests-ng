@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Artist } from "../../../public/artists/artist.model";
 import { Subscription } from "rxjs";
 import { ArtistService } from "../../../public/artists/artist.service";
@@ -10,7 +10,7 @@ import { DataStorageService } from "../../../shared/data-storage.service";
   templateUrl: './artist-detail.component.html',
   styleUrls: ['./artist-detail.component.css']
 })
-export class ArtistDetailComponent implements OnInit, OnDestroy {
+export class ArtistDetailComponent implements OnInit {
   artist: Artist;
   id: number;
 
@@ -42,7 +42,4 @@ export class ArtistDetailComponent implements OnInit, OnDestroy {
       );
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
 }

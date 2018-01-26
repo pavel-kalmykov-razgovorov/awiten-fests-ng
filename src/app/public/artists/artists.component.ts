@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import {Artist} from './artist.model';
 import {ArtistService} from './artist.service';
@@ -12,7 +12,7 @@ import {PaginationInstance} from 'ngx-pagination';
   templateUrl: './artists.component.html',
   styleUrls: ['./artists.component.css'],
 })
-export class ArtistsComponent implements OnInit, OnDestroy {
+export class ArtistsComponent implements OnInit {
   artists: Artist[];
   artistsSubscription: Subscription;
   config: PaginationInstance = {
@@ -32,8 +32,5 @@ export class ArtistsComponent implements OnInit, OnDestroy {
     this.dataStorageService.getArtists();
   }
 
-  ngOnDestroy() {
-    this.artistsSubscription.unsubscribe();
-  }
 
 }

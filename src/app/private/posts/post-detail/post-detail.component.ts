@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Post } from "../post.model";
 import { Subscription } from "rxjs";
 import { PostService } from "../post.service";
@@ -10,7 +10,7 @@ import { DataStorageService } from "../../../shared/data-storage.service";
   templateUrl: './post-detail.component.html',
   styleUrls: ['./post-detail.component.css']
 })
-export class PostDetailComponent implements OnInit, OnDestroy {
+export class PostDetailComponent implements OnInit {
   @Input() post: Post;
   @Input() id: number;
 
@@ -42,7 +42,4 @@ export class PostDetailComponent implements OnInit, OnDestroy {
     this.router.navigate(['../', this.id, 'edit'], { relativeTo: this.route });
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
 }

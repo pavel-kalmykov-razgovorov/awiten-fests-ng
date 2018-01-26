@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 import { Festival } from './festival.model';
 import { FestivalService } from './festival.service';
@@ -12,7 +12,7 @@ import { Router, ActivatedRoute } from "@angular/router";
   templateUrl: './festivals.component.html',
   styleUrls: ['./festivals.component.css'],
 })
-export class FestivalsComponent implements OnInit, OnDestroy {
+export class FestivalsComponent implements OnInit {
   festivals: Festival[];
   subscription: Subscription;
   config: PaginationInstance = {
@@ -35,9 +35,5 @@ export class FestivalsComponent implements OnInit, OnDestroy {
         }
       );
     this.dataStorageService.getFestivals();
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 }

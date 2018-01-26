@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Festival } from '../../festivals/festival.model';
 import { Subscription } from 'rxjs';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -16,7 +16,7 @@ export class ArtistPublicDetailComponent implements OnInit {
   id: number;
 
   subscription: Subscription;
-  private artist: Artist;
+  public artist: Artist;
   private artistSubscription: Subscription;
 
   constructor(

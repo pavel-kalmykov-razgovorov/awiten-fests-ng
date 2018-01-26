@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Post } from "../post.model";
 import { Subscription } from "rxjs";
 import { PostService } from "../post.service";
@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from "@angular/router";
   templateUrl: './posts-list.component.html',
   styleUrls: ['./posts-list.component.css']
 })
-export class PostsListComponent implements OnInit, OnDestroy {
+export class PostsListComponent implements OnInit {
   posts: Post[];
   id: number;
 
@@ -43,9 +43,5 @@ export class PostsListComponent implements OnInit, OnDestroy {
         }
       );
     this.dataStorageService.getPosts();
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Photo } from "../photo.model";
 import { Subscription } from "rxjs";
 import { PhotoService } from "../photo.service";
@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from "@angular/router";
   templateUrl: './photos-list.component.html',
   styleUrls: ['./photos-list.component.css']
 })
-export class PhotosListComponent implements OnInit, OnDestroy {
+export class PhotosListComponent implements OnInit {
   photos: Photo[];
   id: number;
 
@@ -45,7 +45,4 @@ export class PhotosListComponent implements OnInit, OnDestroy {
     this.dataStorageService.getPhotos();
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
 }

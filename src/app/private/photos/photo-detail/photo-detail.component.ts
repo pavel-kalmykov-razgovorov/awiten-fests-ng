@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Photo } from "../photo.model";
 import { Subscription } from "rxjs";
 import { PhotoService } from "../photo.service";
@@ -10,7 +10,7 @@ import { DataStorageService } from "../../../shared/data-storage.service";
   templateUrl: './photo-detail.component.html',
   styleUrls: ['./photo-detail.component.css']
 })
-export class PhotoDetailComponent implements OnInit, OnDestroy {
+export class PhotoDetailComponent implements OnInit {
   @Input() photo: Photo;
   @Input() id: number;
 
@@ -40,9 +40,5 @@ export class PhotoDetailComponent implements OnInit, OnDestroy {
 
   onEditPhoto(id: number) {
     this.router.navigate(['../', this.id, 'edit'], { relativeTo: this.route });
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 }
