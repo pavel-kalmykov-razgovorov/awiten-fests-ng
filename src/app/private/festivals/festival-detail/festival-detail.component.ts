@@ -2,7 +2,7 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Festival } from "../../../public/festivals/festival.model";
 import { Subscription } from "rxjs";
 import { FestivalService } from "../../../public/festivals/festival.service";
-import { ActivatedRoute, Params } from "@angular/router";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 import { DataStorageService } from "../../../shared/data-storage.service";
 
 @Component({
@@ -11,15 +11,20 @@ import { DataStorageService } from "../../../shared/data-storage.service";
   styleUrls: ['./festival-detail.component.css']
 })
 export class FestivalDetailComponent implements OnInit, OnDestroy {
-  @Input() festival: Festival;
-  @Input() id: number;
+  festival: Festival;
+  id: number;
 
   subscription: Subscription;
 
   constructor(
     private festivalService: FestivalService,
+    private router: Router,
     private route: ActivatedRoute,
     private dataStorageService: DataStorageService) { }
+
+  onEditFestival(id: number) {
+    this.router.navigate(['../', this.id, 'edit'], { relativeTo: this.route });
+  }
 
   ngOnInit() {
     this.route.params

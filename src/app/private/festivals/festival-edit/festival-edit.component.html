@@ -1,3 +1,27 @@
-<p>
-  festival-edit works!
-</p>
+<div class="container" style="color: black">
+  <h1 class="page-header">Editar</h1>
+  <form [formGroup]="festivalForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input type="text" id="name" name="name" formControlName="name" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="location">Localización</label>
+      <input type="text" id="location" name="location" formControlName="location" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="province">Provincia</label>
+      <input type="text" id="province" name="province" formControlName="province" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="date">Fecha</label>
+      <input type="date" id="date" name="date" formControlName="date" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="logoUrl">URL logo de Festival</label>
+      <input type="text" id="logoUrl" name="logoUrl" formControlName="logoUrl" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-success">Guardar Cambios</button>
+    <button type="button" class="btn btn-danger">Cancelar</button>
+  </form>
+</div>

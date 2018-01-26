@@ -55,6 +55,59 @@ export class DataStorageService {
       );
   }
 
+  addFestival(values: string[]) {
+    const headers = new Headers();
+    this.addContentTypeHeader(headers);
+    this.addAuthentication(headers);
+    this.addAcceptHeader(headers);
+    this.http.post('http://localhost:8000/api/festivals/', JSON.stringify({
+      name: values[0],
+      location: values[1],
+      province: values[2],
+      date: values[3],
+      logoUrl: values[4]
+    }), { headers: headers })
+      .subscribe(
+        (response: Response) => {
+          const festival: Festival = response.json().data;
+          this.festivalService.addFestival(festival);
+        }
+      )
+  }
+
+  updateFestival(id: number, values: string[]) {
+    const headers = new Headers();
+    this.addContentTypeHeader(headers);
+    this.addAuthentication(headers);
+    this.addAcceptHeader(headers);
+    this.http.put(`http://localhost:8000/api/festivals/${id}`, JSON.stringify({
+      name: values[0],
+      location: values[1],
+      province: values[2],
+      date: values[3],
+      logoUrl: values[4]
+    }), { headers: headers })
+      .subscribe(
+        (response: Response) => {
+          const festival: Festival = response.json().data;
+          this.festivalService.updateFestival(id, festival);
+        }
+      )
+  }
+
+  deleteFestival(id: number) {
+    const headers = new Headers();
+    this.addContentTypeHeader(headers);
+    this.addAuthentication(headers);
+    this.addAcceptHeader(headers);
+    this.http.delete(`http://localhost:8000/api/festivals/${id}`, { headers: headers })
+      .subscribe(
+        (response: Response) => {
+          this.festivalService.deleteFestival(id);
+        }
+      )
+  }
+
   getArtists() {
     this.http.get(`http://localhost:8000/api/artists?size=${this.size}`)
       .subscribe(

@@ -17,15 +17,21 @@
                 <mfDefaultSorter by="website">Localización</mfDefaultSorter>
             </th>
             <th></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let festival of mf.data" [routerLink]="[festival.id]" style="cursor: pointer;">
-            <td>{{festival.name}}</td>
-            <td>{{festival.location}}</td>
+        <tr *ngFor="let festival of mf.data">
+            <td [routerLink]="[festival.id]" style="cursor: pointer;">{{festival.id}}</td>
+            <td [routerLink]="[festival.id]" style="cursor: pointer;">{{festival.location}}</td>
             <td>
-              <a (click)="onEditFestival(festival.id)" style="color: #1BBD36;">
-                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                <a (click)="onEditFestival(festival.id)" style="color: #1BBD36; cursor: pointer;">
+                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                </a>
+            </td>
+            <td>
+              <a (click)="onDeleteFestival(festival.id)" style="color: #9e0f0f; cursor: pointer;">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
               </a>
             </td>
         </tr>

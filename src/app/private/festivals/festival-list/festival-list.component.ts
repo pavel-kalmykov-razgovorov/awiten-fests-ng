@@ -30,6 +30,11 @@ export class FestivalListComponent implements OnInit, OnDestroy {
     this.router.navigate([`${id}/edit`], { relativeTo: this.route });
   }
 
+  onDeleteFestival(id: number) {
+    this.dataStorageService.deleteFestival(id);
+    this.router.navigate(['/admin/festivals'], { relativeTo: this.route });
+  }
+
   ngOnInit() {
     this.subscription = this.festivalService.festivalsChanged
       .subscribe(

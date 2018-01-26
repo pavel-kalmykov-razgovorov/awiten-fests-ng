@@ -20,7 +20,6 @@ export class GenreListComponent implements OnInit, OnDestroy {
     private router: Router,
     private route: ActivatedRoute,
     private dataStorageService: DataStorageService) {
-
   }
 
   onNewGenre() {
