@@ -128,6 +128,61 @@ export class DataStorageService {
       );
   }
 
+  addArtist(values: string[]) {
+    const headers = new Headers();
+    this.addContentTypeHeader(headers);
+    this.addAuthentication(headers);
+    this.addAcceptHeader(headers);
+    this.http.post('http://localhost:8000/api/artists/', JSON.stringify({
+      name: values[0],
+      country: values[1],
+      soundcloud: values[2],
+      website: values[3],
+      profileUrl: values[4],
+      headerUrl: values[5]
+    }), { headers: headers })
+      .subscribe(
+        (response: Response) => {
+          const artist: Artist = response.json().data;
+          this.artistService.addArtist(artist);
+        }
+      )
+  }
+
+  updateArtist(id: number, values: string[]) {
+    const headers = new Headers();
+    this.addContentTypeHeader(headers);
+    this.addAuthentication(headers);
+    this.addAcceptHeader(headers);
+    this.http.put(`http://localhost:8000/api/artists/${id}`, JSON.stringify({
+      name: values[0],
+      country: values[1],
+      soundcloud: values[2],
+      website: values[3],
+      profileUrl: values[4],
+      headerUrl: values[5]
+    }), { headers: headers })
+      .subscribe(
+        (response: Response) => {
+          const artist: Artist = response.json().data;
+          this.artistService.updateArtist(id, artist);
+        }
+      )
+  }
+
+  deleteArtist(id: number) {
+    const headers = new Headers();
+    this.addContentTypeHeader(headers);
+    this.addAuthentication(headers);
+    this.addAcceptHeader(headers);
+    this.http.delete(`http://localhost:8000/api/artists/${id}`, { headers: headers })
+      .subscribe(
+        (response: Response) => {
+          this.artistService.deleteArtist(id);
+        }
+      )
+  }
+
   getGenres() {
     this.http.get(`http://localhost:8000/api/genres?size=${this.size}`)
       .subscribe(

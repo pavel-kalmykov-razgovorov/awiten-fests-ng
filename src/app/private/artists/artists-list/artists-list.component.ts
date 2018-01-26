@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Artist } from "../../../public/artists/artist.model";
 import { Subscription } from "rxjs";
 import { ArtistService } from "../../../public/artists/artist.service";
@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from "@angular/router";
   templateUrl: './artists-list.component.html',
   styleUrls: ['./artists-list.component.css']
 })
-export class ArtistsListComponent implements OnInit {
+export class ArtistsListComponent implements OnInit, OnDestroy {
   artists: Artist[];
   id: number;
 
@@ -28,6 +28,11 @@ export class ArtistsListComponent implements OnInit {
 
   onEditArtist(id: number) {
     this.router.navigate([`${id}/edit`], { relativeTo: this.route });
+  }
+
+  onDeleteArtist(id: number) {
+    this.dataStorageService.deleteArtist(id);
+    this.router.navigate(['/admin/artists'], { relativeTo: this.route });
   }
 
   ngOnInit() {

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { Genre } from './genre.model';
 
+@Injectable()
 export class GenreService {
   genresChanged = new Subject<Genre[]>();
   genreChanged = new Subject<Genre>();

@@ -27,4 +27,19 @@ export class ArtistService {
   getArtist() {
     return this.artist;
   }
+
+  addArtist(artist: Artist) {
+    this.artists.push();
+    this.artistsChanged.next(this.artists.slice());
+  }
+
+  updateArtist(id: number, artist: Artist) {
+    this.artists[id-1] = artist;
+    this.artistsChanged.next(this.artists.slice());
+  }
+
+  deleteArtist(id: number) {
+    this.artists.splice(id-1, 1);
+    this.artistsChanged.next(this.artists.slice());
+  }
 }
