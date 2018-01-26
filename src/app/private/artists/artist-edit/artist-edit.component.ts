@@ -45,31 +45,31 @@ export class ArtistEditComponent implements OnInit {
     }
 
     private initForm() {
-      let festivalName = '';
-      let festivalCountry = '';
-      let festivalSoundcloud = '';
-      let festivalWebsite = '';
-      let festivalProfileUrl = '';
-      let festivalHeaderUrl = '';
+      let artistName = '';
+      let artistCountry = '';
+      let artistSoundcloud = '';
+      let artistWebsite = '';
+      let artistProfileUrl = '';
+      let artistHeaderUrl = '';
 
       if(this.editMode) {
         this.dataStorageService.getArtist(this.id);
-        const festival = this.artistService.getArtist();
-        festivalName = festival.name;
-        festivalCountry = festival.country;
-        festivalSoundcloud = festival.soundcloud;
-        festivalWebsite = festival.website;
-        festivalProfileUrl = festival.profileUrl;
-        festivalHeaderUrl = festival.headerUrl
+        const artist = this.artistService.getArtist();
+        artistName = artist.name;
+        artistCountry = artist.country;
+        artistSoundcloud = artist.soundcloud;
+        artistWebsite = artist.website;
+        artistProfileUrl = artist.profileUrl;
+        artistHeaderUrl = artist.headerUrl
       }
 
       this.artistForm = new FormGroup({
-        'name': new FormControl(festivalName, Validators.required),
-        'country': new FormControl(festivalCountry, Validators.required),
-        'soundcloud': new FormControl(festivalSoundcloud, Validators.required),
-        'website': new FormControl(festivalWebsite, Validators.required),
-        'profileUrl': new FormControl(festivalProfileUrl, Validators.required),
-        'headerUrl': new FormControl(festivalHeaderUrl, Validators.required)
+        'name': new FormControl(artistName, Validators.required),
+        'country': new FormControl(artistCountry, Validators.required),
+        'soundcloud': new FormControl(artistSoundcloud, Validators.required),
+        'website': new FormControl(artistWebsite, Validators.required),
+        'profileUrl': new FormControl(artistProfileUrl, Validators.required),
+        'headerUrl': new FormControl(artistHeaderUrl, Validators.required)
       });
     }
 }

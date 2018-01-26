@@ -30,6 +30,11 @@ export class PhotosListComponent implements OnInit, OnDestroy {
     this.router.navigate([`${id}/edit`], { relativeTo: this.route });
   }
 
+  onDeletePhoto(id: number) {
+    this.dataStorageService.deletePhoto(id);
+    this.router.navigate(['/admin/photos'], { relativeTo: this.route });
+  }
+
   ngOnInit() {
     this.subscription = this.photoService.photosChanged
       .subscribe(

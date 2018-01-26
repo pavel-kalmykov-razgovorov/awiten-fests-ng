@@ -26,4 +26,19 @@ export class PostService {
   getPost() {
     return this.post;
   }
+
+  addPost(Post: Post) {
+    this.posts.push();
+    this.postsChanged.next(this.posts.slice());
+  }
+
+  updatePost(id: number, post: Post) {
+    this.posts[id-1] = post;
+    this.postsChanged.next(this.posts.slice());
+  }
+
+  deletePost(id: number) {
+    this.posts.splice(id-1, 1);
+    this.postsChanged.next(this.posts.slice());
+  }
 }

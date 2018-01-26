@@ -30,6 +30,11 @@ export class PostsListComponent implements OnInit, OnDestroy {
     this.router.navigate([`${id}/edit`], { relativeTo: this.route });
   }
 
+  onDeletePost(id: number) {
+    this.dataStorageService.deletePost(id);
+    this.router.navigate(['/admin/posts'], { relativeTo: this.route });
+  }
+
   ngOnInit() {
     this.subscription = this.postService.postsChanged
       .subscribe(

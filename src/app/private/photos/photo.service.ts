@@ -26,4 +26,19 @@ export class PhotoService {
   getPhoto() {
     return this.photo;
   }
+
+  addPhoto(photo: Photo) {
+    this.photos.push();
+    this.photosChanged.next(this.photos.slice());
+  }
+
+  updatePhoto(id: number, photo: Photo) {
+    this.photos[id-1] = photo;
+    this.photosChanged.next(this.photos.slice());
+  }
+
+  deletePhoto(id: number) {
+    this.photos.splice(id-1, 1);
+    this.photosChanged.next(this.photos.slice());
+  }
 }

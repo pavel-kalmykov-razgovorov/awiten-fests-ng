@@ -22,7 +22,7 @@ export class ArtistDetailComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private dataStorageService: DataStorageService) { }
 
-  onEditFestival(id: number) {
+  onEditArtist(id: number) {
     this.router.navigate(['../', this.id, 'edit'], { relativeTo: this.route });
   }
 

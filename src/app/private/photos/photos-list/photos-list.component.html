@@ -10,7 +10,7 @@
     <table class="table table-hover" [mfData]="photos" #mf="mfDataTable" [mfRowsOnPage]="5">
         <thead>
         <tr>
-            <th style="width: 20%">
+            <th style="width: 5  %">
                 <mfDefaultSorter by="id">ID</mfDefaultSorter>
             </th>
             <th style="width: 20%">
@@ -20,16 +20,22 @@
                 <mfDefaultSorter by="url">URL</mfDefaultSorter>
             </th>
             <th></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let photo of mf.data" [routerLink]="[photo.id]" style="cursor: pointer;">
-            <td>{{photo.id}}</td>
-            <td>{{photo.name}}</td>
-            <td>{{photo.url}}</td>
+        <tr *ngFor="let photo of mf.data">
+            <td [routerLink]="[photo.id]" style="cursor: pointer;">{{photo.id}}</td>
+            <td [routerLink]="[photo.id]" style="cursor: pointer;">{{photo.name}}</td>
+            <td [routerLink]="[photo.id]" style="cursor: pointer;">{{photo.url}}</td>
             <td>
-              <a (click)="onEditPhoto(photo.id)" style="color: #1BBD36;">
+              <a (click)="onEditPhoto(photo.id)" style="color: #1BBD36; cursor: pointer;">
                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+              </a>
+            </td>
+            <td>
+              <a (click)="onDeletePhoto(photo.id)" style="color: #9e0f0f; cursor: pointer;">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
               </a>
             </td>
         </tr>

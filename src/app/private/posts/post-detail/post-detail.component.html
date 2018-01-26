@@ -8,5 +8,6 @@
       <li class="list-group-item"><strong>Cuerpo: </strong>{{ post.body }}</li>
       <li class="list-group-item"><strong>Festival: </strong>{{ post.festival.name }}</li>
     </ul>
+    <button type="button" class="btn btn-success" (click)="onEditPost(post.id)">Editar</button>
   </div>
 </div>

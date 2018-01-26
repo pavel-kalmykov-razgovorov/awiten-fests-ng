@@ -2,10 +2,11 @@
   <div class="container" style="color: black">
     <h1 class="page-header">{{ photo.name }}</h1>
     <ul class="list-group">
-      <li class="list-group-item"><strong>id: </strong>{{ photo.id }}</li>
+      <li class="list-group-item"><strong>ID: </strong>{{ photo.id }}</li>
       <li class="list-group-item"><strong>Nombre: </strong>{{ photo.name }}</li>
       <li class="list-group-item"><strong>URL: </strong>{{ photo.url }}</li>
       <li class="list-group-item"><strong>Festival: </strong>{{ photo.festival.name }}</li>
     </ul>
+    <button type="button" class="btn btn-success" (click)="onEditPhoto(photo.id)">Editar</button>
   </div>
 </div>

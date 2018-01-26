@@ -23,17 +23,23 @@
                 <mfDefaultSorter by="body">Cuerpo</mfDefaultSorter>
             </th>
             <th></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let post of mf.data" [routerLink]="[post.id]" style="cursor: pointer;">
-            <td>{{post.id}}</td>
-            <td>{{post.title}}</td>
-            <td>{{post.lead}}</td>
-            <td>{{post.body}}</td>
+        <tr *ngFor="let post of mf.data">
+            <td [routerLink]="[post.id]" style="cursor: pointer;">{{post.id}}</td>
+            <td [routerLink]="[post.id]" style="cursor: pointer;">{{post.title}}</td>
+            <td [routerLink]="[post.id]" style="cursor: pointer;">{{post.lead}}</td>
+            <td [routerLink]="[post.id]" style="cursor: pointer;">{{post.body}}</td>
             <td>
               <a (click)="onEditPost(post.id)" style="color: #1BBD36;">
                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+              </a>
+            </td>
+            <td>
+              <a (click)="onDeletePost(post.id)" style="color: #9e0f0f; cursor: pointer;">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
               </a>
             </td>
         </tr>

@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Photo } from "../photo.model";
 import { Subscription } from "rxjs";
 import { PhotoService } from "../photo.service";
-import { ActivatedRoute, Params } from "@angular/router";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 import { DataStorageService } from "../../../shared/data-storage.service";
 
 @Component({
@@ -18,6 +18,7 @@ export class PhotoDetailComponent implements OnInit, OnDestroy {
 
   constructor(
     private photoService: PhotoService,
+    private router: Router,
     private route: ActivatedRoute,
     private dataStorageService: DataStorageService) { }
 
@@ -35,6 +36,10 @@ export class PhotoDetailComponent implements OnInit, OnDestroy {
           this.dataStorageService.getPhoto(this.id);
         }
       );
+  }
+
+  onEditPhoto(id: number) {
+    this.router.navigate(['../', this.id, 'edit'], { relativeTo: this.route });
   }
 
   ngOnDestroy() {

@@ -268,6 +268,51 @@ export class DataStorageService {
       );
   }
 
+  addPhoto(values: string[]) {
+    const headers = new Headers();
+    this.addContentTypeHeader(headers);
+    this.addAuthentication(headers);
+    this.addAcceptHeader(headers);
+    this.http.post('http://localhost:8000/api/photos/', JSON.stringify({
+      name: values[0],
+    }), { headers: headers })
+      .subscribe(
+        (response: Response) => {
+          const photo: Photo = response.json().data;
+          this.photoService.addPhoto(photo);
+        }
+      )
+  }
+
+  updatePhoto(id: number, values: string[]) {
+    const headers = new Headers();
+    this.addContentTypeHeader(headers);
+    this.addAuthentication(headers);
+    this.addAcceptHeader(headers);
+    this.http.put(`http://localhost:8000/api/photos/${id}`, JSON.stringify({
+      name: values[0],
+    }), { headers: headers })
+      .subscribe(
+        (response: Response) => {
+          const photo: Photo = response.json().data;
+          this.photoService.updatePhoto(id, photo);
+        }
+      )
+  }
+
+  deletePhoto(id: number) {
+    const headers = new Headers();
+    this.addContentTypeHeader(headers);
+    this.addAuthentication(headers);
+    this.addAcceptHeader(headers);
+    this.http.delete(`http://localhost:8000/api/photos/${id}`, { headers: headers })
+      .subscribe(
+        (response: Response) => {
+          this.photoService.deletePhoto(id);
+        }
+      )
+  }
+
   getPosts() {
     this.http.get(`http://localhost:8000/api/posts?size=${this.size}`)
       .subscribe(
@@ -286,5 +331,54 @@ export class DataStorageService {
           this.postService.setPost(post);
         }
       );
+  }
+
+  addPost(values: string[]) {
+    const headers = new Headers();
+    this.addContentTypeHeader(headers);
+    this.addAuthentication(headers);
+    this.addAcceptHeader(headers);
+    this.http.post('http://localhost:8000/api/posts/', JSON.stringify({
+      title: values[0],
+      lead: values[1],
+      body: values[2]
+    }), { headers: headers })
+      .subscribe(
+        (response: Response) => {
+          const post: Post = response.json().data;
+          this.postService.addPost(post);
+        }
+      )
+  }
+
+  updatePost(id: number, values: string[]) {
+    const headers = new Headers();
+    this.addContentTypeHeader(headers);
+    this.addAuthentication(headers);
+    this.addAcceptHeader(headers);
+    this.http.put(`http://localhost:8000/api/posts/${id}`, JSON.stringify({
+      title: values[0],
+      lead: values[1],
+      body: values[2]
+    }), { headers: headers })
+      .subscribe(
+        (response: Response) => {
+          const post: Post = response.json().data;
+          this.postService.updatePost(id, post);
+        }
+      )
+  }
+
+  deletePost(id: number) {
+    const headers = new Headers();
+    this.addContentTypeHeader(headers);
+    this.addAuthentication(headers);
+    this.addAcceptHeader(headers);
+    this.http.delete(`http://localhost:8000/api/posts/${id}`, { headers: headers })
+      .subscribe(
+        (response: Response) => {
+          this.postService.deletePost(id);
+        }
+      )
   }
 }
