@@ -8,7 +8,7 @@
       <li class="list-group-item"><strong>SoundCloud: </strong>{{ artist.soundcloud }}</li>
       <li class="list-group-item"><strong>Página Web: </strong>{{ artist.website }}</li>
       <li class="list-group-item"><strong>Imagen de Perfil: </strong>{{ artist.profileUrl }}</li>
-      <li class="list-group-item"><strong>Imagen de cabecera: </strong><a href="{{ festival.logoUrl }}">{{ artist.headerUrl }}</a></li>
+      <li class="list-group-item"><strong>Imagen de cabecera: </strong><a href="{{ artist.headerUrl }}">{{ artist.headerUrl }}</a></li>
       <li class="list-group-item"><strong>Festivales: </strong>
         <ul>
           <li class="arrow-list-glyph" *ngFor="let festival of artist.festivals">{{ festival.name }}</li>

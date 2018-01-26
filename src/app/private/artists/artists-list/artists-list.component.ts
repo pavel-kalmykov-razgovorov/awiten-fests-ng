@@ -3,6 +3,7 @@ import { Artist } from "../../../public/artists/artist.model";
 import { Subscription } from "rxjs";
 import { ArtistService } from "../../../public/artists/artist.service";
 import { DataStorageService } from "../../../shared/data-storage.service";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-artists-list',
@@ -11,11 +12,23 @@ import { DataStorageService } from "../../../shared/data-storage.service";
 })
 export class ArtistsListComponent implements OnInit {
   artists: Artist[];
+  id: number;
+
   subscription: Subscription;
 
   constructor(
     private artistService: ArtistService,
+    private router: Router,
+    private route: ActivatedRoute,
     private dataStorageService: DataStorageService) { }
+
+  onNewArtist() {
+    this.router.navigate(['new'], { relativeTo: this.route });
+  }
+
+  onEditArtist(id: number) {
+    this.router.navigate([`${id}/edit`], { relativeTo: this.route });
+  }
 
   ngOnInit() {
     this.subscription = this.artistService.artistsChanged

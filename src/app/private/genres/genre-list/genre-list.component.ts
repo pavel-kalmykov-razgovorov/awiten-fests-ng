@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { Genre } from '../genre.model';
 import { GenreService } from '../genre.service';
 import { DataStorageService } from '../../../shared/data-storage.service';
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-genre-list',
@@ -10,14 +11,25 @@ import { DataStorageService } from '../../../shared/data-storage.service';
   styleUrls: ['./genre-list.component.css']
 })
 export class GenreListComponent implements OnInit, OnDestroy {
-  @Input() genres: Genre[];
-  @Input() id: number;
+  genres: Genre[];
+  id: number;
 
   subscription: Subscription;
 
-  constructor(
-    private genreService: GenreService,
-    private dataStorageService: DataStorageService) { }
+  constructor(private genreService: GenreService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private dataStorageService: DataStorageService) {
+
+  }
+
+  onNewGenre() {
+    this.router.navigate(['new'], { relativeTo: this.route });
+  }
+
+  onEditGenre(id: number) {
+    this.router.navigate([`${id}/edit`], { relativeTo: this.route });
+  }
 
   ngOnInit() {
     this.subscription = this.genreService.genresChanged

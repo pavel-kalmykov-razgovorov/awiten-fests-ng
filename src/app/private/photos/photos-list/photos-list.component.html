@@ -3,8 +3,9 @@
   <button
     type="button"
     name="button"
-    class="btn btn-primary"
-    style="margin-bottom: 10px">Añadir Foto<span></span></button>
+    class="btn btn-success"
+    style="margin-bottom: 10px"
+    (click)="onNewPhoto()">Añadir Foto<span></span></button>
   <div class="table-bordered table-responsive" style="color: black">
     <table class="table table-hover" [mfData]="photos" #mf="mfDataTable" [mfRowsOnPage]="5">
         <thead>
@@ -18,6 +19,7 @@
             <th style="width: 20%">
                 <mfDefaultSorter by="url">URL</mfDefaultSorter>
             </th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -25,6 +27,11 @@
             <td>{{photo.id}}</td>
             <td>{{photo.name}}</td>
             <td>{{photo.url}}</td>
+            <td>
+              <a (click)="onEditPhoto(photo.id)" style="color: #1BBD36;">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+              </a>
+            </td>
         </tr>
         </tbody>
         <tfoot>

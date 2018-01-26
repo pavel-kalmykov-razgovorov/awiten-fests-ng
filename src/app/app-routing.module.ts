@@ -23,6 +23,11 @@ import { FestivalListComponent } from "./private/festivals/festival-list/festiva
 import { FestivalDetailComponent } from "./private/festivals/festival-detail/festival-detail.component";
 import { ArtistsListComponent } from "./private/artists/artists-list/artists-list.component";
 import { ArtistDetailComponent } from "./private/artists/artist-detail/artist-detail.component";
+import { GenreEditComponent } from "./private/genres/genre-edit/genre-edit.component";
+import { ArtistEditComponent } from "./private/artists/artist-edit/artist-edit.component";
+import { FestivalEditComponent } from "./private/festivals/festival-edit/festival-edit.component";
+import { PostEditComponent } from "./private/posts/post-edit/post-edit.component";
+import { PhotoEditComponent } from "./private/photos/photo-edit/photo-edit.component";
 
 const appRoutes: Routes = [
   {
@@ -64,8 +69,16 @@ const appRoutes: Routes = [
             component: GenreListComponent
           },
           {
+            path: 'new',
+            component: GenreEditComponent
+          },
+          {
             path: ':id',
             component: GenreDetailComponent
+          },
+          {
+            path: ':id/edit',
+            component: GenreEditComponent
           }
         ]
       },
@@ -78,8 +91,16 @@ const appRoutes: Routes = [
             component: PhotosListComponent
           },
           {
+            path: 'new',
+            component: PhotoEditComponent
+          },
+          {
             path: ':id',
             component: PhotoDetailComponent
+          },
+          {
+            path: ':id/edit',
+            component: PhotoEditComponent
           }
         ]
       },
@@ -92,8 +113,16 @@ const appRoutes: Routes = [
             component: PostsListComponent
           },
           {
+            path: 'new',
+            component: PostEditComponent
+          },
+          {
             path: ':id',
             component: PostDetailComponent
+          },
+          {
+            path: ':id/edit',
+            component: PostEditComponent
           }
         ]
       },
@@ -106,8 +135,16 @@ const appRoutes: Routes = [
             component: FestivalListComponent
           },
           {
+            path: 'new',
+            component: FestivalEditComponent
+          },
+          {
             path: ':id',
             component: FestivalDetailComponent
+          },
+          {
+            path: ':id/edit',
+            component: FestivalEditComponent
           }
         ]
       },
@@ -120,8 +157,16 @@ const appRoutes: Routes = [
             component: ArtistsListComponent
           },
           {
+            path: 'new',
+            component: ArtistEditComponent
+          },
+          {
             path: ':id',
             component: ArtistDetailComponent
+          },
+          {
+            path: ':id/edit',
+            component: ArtistEditComponent
           }
         ]
       }

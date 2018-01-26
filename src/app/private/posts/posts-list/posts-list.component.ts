@@ -3,6 +3,7 @@ import { Post } from "../post.model";
 import { Subscription } from "rxjs";
 import { PostService } from "../post.service";
 import { DataStorageService } from "../../../shared/data-storage.service";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-posts-list',
@@ -11,11 +12,23 @@ import { DataStorageService } from "../../../shared/data-storage.service";
 })
 export class PostsListComponent implements OnInit, OnDestroy {
   posts: Post[];
+  id: number;
+
   subscription: Subscription;
 
   constructor(
     private postService: PostService,
+    private router: Router,
+    private route: ActivatedRoute,
     private dataStorageService: DataStorageService) { }
+
+  onNewPost() {
+    this.router.navigate(['new'], { relativeTo: this.route });
+  }
+
+  onEditPost(id: number) {
+    this.router.navigate([`${id}/edit`], { relativeTo: this.route });
+  }
 
   ngOnInit() {
     this.subscription = this.postService.postsChanged
