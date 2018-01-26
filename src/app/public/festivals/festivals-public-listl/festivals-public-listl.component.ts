@@ -1,19 +1,17 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-
-import { Festival } from './festival.model';
-import { FestivalService } from './festival.service';
-import { Subscription } from 'rxjs/Subscription';
-import { DataStorageService } from '../../shared/data-storage.service';
-import {PaginationInstance} from 'ngx-pagination';
+import { Component, OnInit } from '@angular/core';
+import { Festival } from "../festival.model";
+import { Subscription } from "rxjs";
+import { PaginationInstance } from "ngx-pagination/dist/ngx-pagination";
+import { FestivalService } from "../festival.service";
 import { Router, ActivatedRoute } from "@angular/router";
+import { DataStorageService } from "../../../shared/data-storage.service";
 
 @Component({
-  selector: 'app-festivals',
-  templateUrl: './festivals.component.html',
-  styleUrls: ['./festivals.component.css'],
+  selector: 'app-festivals-public-listl',
+  templateUrl: './festivals-public-listl.component.html',
+  styleUrls: ['./festivals-public-listl.component.css']
 })
-export class FestivalsComponent implements OnInit, OnDestroy {
-  festivals: Festival[];
+export class FestivalsPublicListlComponent implements OnInit {  festivals: Festival[];
   subscription: Subscription;
   config: PaginationInstance = {
     id: 'custom',

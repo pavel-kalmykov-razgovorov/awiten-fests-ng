@@ -47,6 +47,10 @@ import { FestivalEditComponent } from './private/festivals/festival-edit/festiva
 import { ArtistEditComponent } from './private/artists/artist-edit/artist-edit.component';
 import { PhotoEditComponent } from './private/photos/photo-edit/photo-edit.component';
 import { PostEditComponent } from './private/posts/post-edit/post-edit.component';
+import { FestivalPublicDetailComponent } from './public/festivals/festival-public-detail/festival-public-detail.component';
+import { ArtistPublicDetailComponent } from './public/artists/artist-public-detail/artist-public-detail.component';
+import { FestivalsPublicListlComponent } from './public/festivals/festivals-public-listl/festivals-public-listl.component';
+import { ArtistPublicListlComponent } from './public/artists/artist--public-listl/artist--public-listl.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +87,11 @@ import { PostEditComponent } from './private/posts/post-edit/post-edit.component
     FestivalEditComponent,
     ArtistEditComponent,
     PhotoEditComponent,
-    PostEditComponent
+    PostEditComponent,
+    FestivalPublicDetailComponent,
+    ArtistPublicDetailComponent,
+    FestivalsPublicListlComponent,
+    ArtistPublicListlComponent,
   ],
   imports: [
     BrowserModule,
