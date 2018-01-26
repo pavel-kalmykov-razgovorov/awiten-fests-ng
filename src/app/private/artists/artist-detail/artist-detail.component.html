@@ -1,0 +1,24 @@
+<div *ngIf="artist">
+  <div class="container" style="color: black">
+    <h1 class="page-header">{{ artist.name }}</h1>
+    <ul class="list-group">
+      <li class="list-group-item"><strong>id: </strong>{{ artist.id }}</li>
+      <li class="list-group-item"><strong>Nombre: </strong>{{ artist.name }}</li>
+      <li class="list-group-item"><strong>País: </strong>{{ artist.country }}</li>
+      <li class="list-group-item"><strong>SoundCloud: </strong>{{ artist.soundcloud }}</li>
+      <li class="list-group-item"><strong>Página Web: </strong>{{ artist.website }}</li>
+      <li class="list-group-item"><strong>Imagen de Perfil: </strong>{{ artist.profileUrl }}</li>
+      <li class="list-group-item"><strong>Imagen de cabecera: </strong><a href="{{ festival.logoUrl }}">{{ artist.headerUrl }}</a></li>
+      <li class="list-group-item"><strong>Festivales: </strong>
+        <ul>
+          <li class="arrow-list-glyph" *ngFor="let festival of artist.festivals">{{ festival.name }}</li>
+        </ul>
+      </li>
+      <li class="list-group-item"><strong>Géneros: </strong>
+        <ul>
+          <li class="arrow-list-glyph" *ngFor="let genre of artist.genres">{{ genre.name }}</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

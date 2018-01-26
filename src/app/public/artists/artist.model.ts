@@ -1,3 +1,6 @@
+import { Festival } from "../festivals/festival.model";
+import { Genre } from "../../private/genres/genre.model";
+
 export interface Artist {
   id: number;
   name: string;
@@ -6,4 +9,6 @@ export interface Artist {
   website: string;
   profileUrl: string;
   headerUrl: string;
+  festivals: Festival[];
+  genres: Genre[];
 }

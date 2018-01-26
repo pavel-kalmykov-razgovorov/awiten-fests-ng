@@ -1,3 +1,12 @@
-<p>
-  post-detail works!
-</p>
+<div *ngIf="post">
+  <div class="container" style="color: black">
+    <h1 class="page-header">{{ post.title }}</h1>
+    <ul class="list-group">
+      <li class="list-group-item"><strong>id: </strong>{{ post.id }}</li>
+      <li class="list-group-item"><strong>Título: </strong>{{ post.title }}</li>
+      <li class="list-group-item"><strong>Cabecera: </strong>{{ post.lead }}</li>
+      <li class="list-group-item"><strong>Cuerpo: </strong>{{ post.body }}</li>
+      <li class="list-group-item"><strong>Festival: </strong>{{ post.festival.name }}</li>
+    </ul>
+  </div>
+</div>

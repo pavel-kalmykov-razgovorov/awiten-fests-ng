@@ -6,11 +6,4 @@ export class Genre {
   public name: string;
   public artists: Artist[];
   public festivals: Festival[];
-
-  constructor(id: number, location: string, artists: Artist[], festivals: Festival[]) {
-    this.id = id;
-    this.name = name;
-    this.artists = artists;
-    this.festivals = festivals;
-  }
 }

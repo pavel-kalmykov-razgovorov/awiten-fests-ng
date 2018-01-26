@@ -1,15 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Photo } from "../photo.model";
+import { Subscription } from "rxjs";
+import { PhotoService } from "../photo.service";
+import { ActivatedRoute, Params } from "@angular/router";
+import { DataStorageService } from "../../../shared/data-storage.service";
 
 @Component({
   selector: 'app-photo-detail',
   templateUrl: './photo-detail.component.html',
   styleUrls: ['./photo-detail.component.css']
 })
-export class PhotoDetailComponent implements OnInit {
+export class PhotoDetailComponent implements OnInit, OnDestroy {
+  @Input() photo: Photo;
+  @Input() id: number;
 
-  constructor() { }
+  subscription: Subscription;
+
+  constructor(
+    private photoService: PhotoService,
+    private route: ActivatedRoute,
+    private dataStorageService: DataStorageService) { }
 
   ngOnInit() {
+    this.route.params
+      .subscribe(
+        (params: Params) => {
+          this.id = +params['id'];
+          this.subscription = this.photoService.photoChanged
+            .subscribe(
+              (photo: Photo) => {
+                this.photo = photo;
+              }
+            );
+          this.dataStorageService.getPhoto(this.id);
+        }
+      );
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }

@@ -1,0 +1,33 @@
+<div *ngIf="festival">
+  <div class="container" style="color: black">
+    <h1 class="page-header">{{ festival.name }}</h1>
+    <ul class="list-group">
+      <li class="list-group-item"><strong>id: </strong>{{ festival.id }}</li>
+      <li class="list-group-item"><strong>Nombre: </strong>{{ festival.name }}</li>
+      <li class="list-group-item"><strong>Fecha: </strong>{{ festival.date }}</li>
+      <li class="list-group-item"><strong>Provincia: </strong>{{ festival.province }}</li>
+      <li class="list-group-item"><strong>Localización: </strong>{{ festival.location }}</li>
+      <li class="list-group-item"><strong>logoUrl: </strong><a href="{{ festival.logoUrl }}">{{ festival.logoUrl }}</a></li>
+      <li class="list-group-item"><strong>Artistas: </strong>
+        <ul>
+          <li class="arrow-list-glyph" *ngFor="let artist of festival.artists">{{ artist.name }}</li>
+        </ul>
+      </li>
+      <li class="list-group-item"><strong>Géneros: </strong>
+        <ul>
+          <li class="arrow-list-glyph" *ngFor="let genre of festival.genres">{{ genre.name }}</li>
+        </ul>
+      </li>
+      <li class="list-group-item"><strong>Fotos: </strong>
+        <ul>
+          <li class="arrow-list-glyph" *ngFor="let photo of festival.photos"><a href="{{ photo.url }}">{{ photo.name }}</a></li>
+        </ul>
+      </li>
+      <li class="list-group-item"><strong>Noticias: </strong>
+        <ul>
+          <li class="arrow-list-glyph" *ngFor="let post of festival.posts">{{ post.title }}</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

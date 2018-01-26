@@ -45,12 +45,32 @@ export class DataStorageService {
       );
   }
 
+  getFestival(id: number) {
+    this.http.get(`http://localhost:8000/api/festivals/${id}`)
+      .subscribe(
+        (response: Response) => {
+          const festival: Festival = response.json().data;
+          this.festivalService.setFestival(festival);
+        }
+      );
+  }
+
   getArtists() {
     this.http.get(`http://localhost:8000/api/artists?size=${this.size}`)
       .subscribe(
         (response: Response) => {
           const artists: Artist[] = response.json().data;
           this.artistService.setArtists(artists);
+        }
+      );
+  }
+
+  getArtist(id: number) {
+    this.http.get(`http://localhost:8000/api/artists/${id}`)
+      .subscribe(
+        (response: Response) => {
+          const artists: Artist = response.json().data;
+          this.artistService.setArtist(artists);
         }
       );
   }
@@ -85,12 +105,32 @@ export class DataStorageService {
       );
   }
 
+  getPhoto(id: number) {
+    this.http.get(`http://localhost:8000/api/photos/${id}`)
+      .subscribe(
+        (response: Response) => {
+          const photo: Photo = response.json().data;
+          this.photoService.setPhoto(photo);
+        }
+      );
+  }
+
   getPosts() {
     this.http.get(`http://localhost:8000/api/posts?size=${this.size}`)
       .subscribe(
         (response: Response) => {
           const posts: Post[] = response.json().data;
           this.postService.setPosts(posts);
+        }
+      );
+  }
+
+  getPost(id: number) {
+    this.http.get(`http://localhost:8000/api/posts/${id}`)
+      .subscribe(
+        (response: Response) => {
+          const post: Post = response.json().data;
+          this.postService.setPost(post);
         }
       );
   }

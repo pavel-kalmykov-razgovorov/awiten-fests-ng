@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { Subscription } from "rxjs";
-import { Genre } from "../genre.model";
-import { GenreService } from "../genre.service";
-import { DataStorageService } from "../../../shared/data-storage.service";
+import { Subscription } from 'rxjs';
+import { Genre } from '../genre.model';
+import { GenreService } from '../genre.service';
+import { DataStorageService } from '../../../shared/data-storage.service';
 
 @Component({
   selector: 'app-genre-list',

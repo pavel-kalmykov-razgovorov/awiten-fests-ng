@@ -36,6 +36,12 @@ import { FestivalsPrivateComponent } from './private/festivals/festivals.compone
 import { ArtistsPrivateComponent } from './private/artists/artists.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { GenreListComponent } from './private/genres/genre-list/genre-list.component';
+import { PhotosListComponent } from './private/photos/photos-list/photos-list.component';
+import { PostsListComponent } from './private/posts/posts-list/posts-list.component';
+import { FestivalListComponent } from './private/festivals/festival-list/festival-list.component';
+import { FestivalDetailComponent } from './private/festivals/festival-detail/festival-detail.component';
+import { ArtistsListComponent } from './private/artists/artists-list/artists-list.component';
+import { ArtistDetailComponent } from './private/artists/artist-detail/artist-detail.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +67,13 @@ import { GenreListComponent } from './private/genres/genre-list/genre-list.compo
     NameFilterComponent,
     ArtistsPrivateComponent,
     FestivalsPrivateComponent,
-    GenreListComponent
+    GenreListComponent,
+    PhotosListComponent,
+    PostsListComponent,
+    FestivalListComponent,
+    FestivalDetailComponent,
+    ArtistsListComponent,
+    ArtistDetailComponent
   ],
   imports: [
     BrowserModule,

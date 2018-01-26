@@ -1,23 +1,23 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { Post } from "../post.model";
+import { Artist } from "../../../public/artists/artist.model";
 import { Subscription } from "rxjs";
-import { PostService } from "../post.service";
+import { ArtistService } from "../../../public/artists/artist.service";
 import { ActivatedRoute, Params } from "@angular/router";
 import { DataStorageService } from "../../../shared/data-storage.service";
 
 @Component({
-  selector: 'app-post-detail',
-  templateUrl: './post-detail.component.html',
-  styleUrls: ['./post-detail.component.css']
+  selector: 'app-artist-detail',
+  templateUrl: './artist-detail.component.html',
+  styleUrls: ['./artist-detail.component.css']
 })
-export class PostDetailComponent implements OnInit, OnDestroy {
-  @Input() post: Post;
+export class ArtistDetailComponent implements OnInit, OnDestroy {
+  @Input() artist: Artist;
   @Input() id: number;
 
   subscription: Subscription;
 
   constructor(
-    private postService: PostService,
+    private artistService: ArtistService,
     private route: ActivatedRoute,
     private dataStorageService: DataStorageService) { }
 
@@ -26,13 +26,13 @@ export class PostDetailComponent implements OnInit, OnDestroy {
       .subscribe(
         (params: Params) => {
           this.id = +params['id'];
-          this.subscription = this.postService.postChanged
+          this.subscription = this.artistService.artistChanged
             .subscribe(
-              (post: Post) => {
-                this.post = post;
+              (artist: Artist) => {
+                this.artist = artist;
               }
             );
-          this.dataStorageService.getPost(this.id);
+          this.dataStorageService.getArtist(this.id);
         }
       );
   }
