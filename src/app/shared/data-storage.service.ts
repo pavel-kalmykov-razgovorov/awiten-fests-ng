@@ -36,10 +36,14 @@ export class DataStorageService {
   }
 
   getFestivals() {
-    this.http.get(`http://localhost:8000/api/festivals?size=${this.size}`)
+    const headers = new Headers();
+    this.addAuthentication(headers);
+    this.addAcceptHeader(headers);
+    this.http.get(`http://localhost:8000/api/festivals?size=${this.size}&only_mine` , { headers: headers })
       .subscribe(
         (response: Response) => {
           const festivals: Festival[] = response.json().data;
+          console.log(festivals.length);
           this.festivalService.setFestivals(festivals);
         }
       );
@@ -109,7 +113,10 @@ export class DataStorageService {
   }
 
   getArtists() {
-    this.http.get(`http://localhost:8000/api/artists?size=${this.size}`)
+    const headers = new Headers();
+    this.addAuthentication(headers);
+    this.addAcceptHeader(headers);
+    this.http.get(`http://localhost:8000/api/artists?size=${this.size}&only_mine`, { headers: headers })
       .subscribe(
         (response: Response) => {
           const artists: Artist[] = response.json().data;
@@ -184,7 +191,10 @@ export class DataStorageService {
   }
 
   getGenres() {
-    this.http.get(`http://localhost:8000/api/genres?size=${this.size}`)
+    const headers = new Headers();
+    this.addAuthentication(headers);
+    this.addAcceptHeader(headers);
+    this.http.get(`http://localhost:8000/api/genres?size=${this.size}&only_mine`, { headers: headers })
       .subscribe(
         (response: Response) => {
           const genres: Genre[] = response.json().data;
@@ -249,7 +259,10 @@ export class DataStorageService {
   }
 
   getPhotos() {
-    this.http.get(`http://localhost:8000/api/photos?size=${this.size}`)
+    const headers = new Headers();
+    this.addAuthentication(headers);
+    this.addAcceptHeader(headers);
+    this.http.get(`http://localhost:8000/api/photos?size=${this.size}&only_mine`, { headers: headers })
       .subscribe(
         (response: Response) => {
           const photos: Photo[] = response.json().data;
@@ -314,7 +327,10 @@ export class DataStorageService {
   }
 
   getPosts() {
-    this.http.get(`http://localhost:8000/api/posts?size=${this.size}`)
+    const headers = new Headers();
+    this.addAuthentication(headers);
+    this.addAcceptHeader(headers);
+    this.http.get(`http://localhost:8000/api/posts?size=${this.size}&only_mine`, { headers: headers })
       .subscribe(
         (response: Response) => {
           const posts: Post[] = response.json().data;

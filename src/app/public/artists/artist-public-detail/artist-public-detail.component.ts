@@ -11,7 +11,7 @@ import {ArtistService} from '../artist.service';
   templateUrl: './artist-public-detail.component.html',
   styleUrls: ['./artist-public-detail.component.css']
 })
-export class ArtistPublicDetailComponent implements OnInit, OnDestroy {
+export class ArtistPublicDetailComponent implements OnInit {
   festivals: Festival[];
   id: number;
 
